@@ -53,7 +53,11 @@ const validateUserRegistration = (data) => {
         }),
         preferences: Joi.object({
             notification_opt_in: Joi.boolean().default(false)
-        })
+        }),
+        github_id: Joi.string().allow(null, '')
+            .messages({
+                'string.base': 'GitHub ID must be a string'
+            }),
     });
 
     return schema.validate(data, { abortEarly: false });
@@ -94,7 +98,11 @@ const validateUserUpdate = (data) => {
         }),
         preferences: Joi.object({
             notification_opt_in: Joi.boolean()
-        })
+        }),
+        github_id: Joi.string().allow(null, '')
+            .messages({
+                'string.base': 'GitHub ID must be a string'
+            })
     }).min(1).messages({
         'object.min': 'At least one field must be provided for update'
     });

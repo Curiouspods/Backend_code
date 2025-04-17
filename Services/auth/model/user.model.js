@@ -67,6 +67,11 @@ const userSchema = new mongoose.Schema({
     preferences: {
         notification_opt_in: { type: Boolean, default: false }
     },
+    github_id: {
+        type: String,
+        required: false,
+    },
+
     provider: { type: String, enum: ['local', 'google', 'linkedin'], required: true },
     providerId: { type: String },
     last_login: {

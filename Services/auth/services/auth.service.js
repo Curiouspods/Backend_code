@@ -36,11 +36,13 @@ const loginUser = async (email, password, ipAddress = null, deviceInfo = null) =
         }
 
         // Verify password
-        const isPasswordValid = bcrypt.compare(password, user.password);
+        // Verify password
+        const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
             logger.warn(`Login failed: Invalid password for user ${user._id}`);
             throw new ApiError(401, 'Invalid credentials');
         }
+
 
         // Generate JWT token
         const token = generateToken(user._id);

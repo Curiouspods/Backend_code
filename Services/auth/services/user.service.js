@@ -2,7 +2,7 @@
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const userRepository = require('../repository/user.repository');
-const { encrypt } = require('../config/encryption');
+const { encrypt,decrypt } = require('../config/encryption');
 const logger = require('../config/logger');
 const { ApiError } = require('../middleware/error.middleware');
 
@@ -19,7 +19,8 @@ const registerUser = async (userData) => {
             password,
             phone_number,
             address,
-            preferences
+            preferences,
+            github_id,
         } = userData;
 
         // Create consistent hash for email for lookup purposes
@@ -75,6 +76,7 @@ const registerUser = async (userData) => {
                 status: 'inactive',
                 email_verified: false,
                 preferences: preferences || { notification_opt_in: false },
+                github_id:github_id,
                 provider: 'local',
                 created_at: new Date(),
                 login_history: []
@@ -155,6 +157,10 @@ const updateUserProfile = async (userId, updateData) => {
         if (updateData.last_name) updateFields.last_name = updateData.last_name;
         if (updateData.DoB) updateFields.DoB = updateData.DoB;
         if (updateData.industry) updateFields.industry = updateData.industry;
+        if (updateData.github_id) {
+            updateFields.github_id = updateData.github_id;
+        }
+
 
         // Handle phone number if provided and changed
         if (updateData.phone_number && (!existingUser.phone_number ||
@@ -204,7 +210,9 @@ const updateUserProfile = async (userId, updateData) => {
             address: updatedUser.address,
             preferences: updatedUser.preferences,
             status: updatedUser.status,
-            email_verified: updatedUser.email_verified
+            email_verified: updatedUser.email_verified,
+            github_id: updatedUser.github_id ? updatedUser.github_id:"",
+
         };
 
     } catch (error) {
