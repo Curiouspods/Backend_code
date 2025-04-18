@@ -4,13 +4,36 @@ const otpService = require('../services/otpService');
 const { validateUserRegistration, validateUserUpdate, validatePasswordChange } = require('../validation/user.validation');
 const logger = require('../config/logger');
 const { ApiError } = require('../middleware/error.middleware');
+const axios = require('axios');
+const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 
 const registerUser = async (req, res, next) => {
     try {
-        // Validate input data
-        const { error } = validateUserRegistration(req.body);
+        // 1. CAPTCHA validation
+        const { captcha, ...userData } = req.body;
+
+        if (!captcha) {
+            throw new ApiError(400, 'CAPTCHA token is missing');
+        }
+
+        const captchaResponse = await axios.post(
+            'https://www.google.com/recaptcha/api/siteverify',
+            null,
+            {
+                params: {
+                    secret: RECAPTCHA_SECRET_KEY,
+                    response: captcha
+                }
+            }
+        );
+
+        if (!captchaResponse.data.success) {
+            throw new ApiError(400, 'CAPTCHA verification failed');
+        }
+
+        // 2. Validate input data
+        const { error } = validateUserRegistration(userData);
         if (error) {
-            // Format validation errors
             const errors = error.details.map(detail => ({
                 field: detail.path.join('.'),
                 message: detail.message
@@ -19,14 +42,13 @@ const registerUser = async (req, res, next) => {
             throw new ApiError(400, 'Validation Error', { errors });
         }
 
-        // Log registration attempt (without sensitive data)
-        logger.info(`Registration attempt for email: ${req.body.email.substring(0, 3)}...`);
+        // 3. Log registration attempt (without sensitive data)
+        logger.info(`Registration attempt for email: ${userData.email.substring(0, 3)}...`);
 
-        // Register the user
-        const user = await userService.registerUser(req.body);
+        // 4. Register the user
+        const user = await userService.registerUser(userData);
 
         try {
-            // Initial OTP send is not a resend
             await otpService.generateAndSendOTP(user._id, false);
         } catch (otpError) {
             logger.error('Failed to send verification email during registration', {
@@ -34,13 +56,10 @@ const registerUser = async (req, res, next) => {
                 stack: otpError.stack,
                 userId: user._id
             });
-            // Continue with registration response even if OTP sending fails
         }
 
-        // Log successful registration
         logger.info(`User registered successfully: ${user._id}`);
 
-        // Return successful response
         res.status(201).json({
             status: 'success',
             message: 'User registered successfully. Please check your email for a verification code.',
@@ -50,17 +69,14 @@ const registerUser = async (req, res, next) => {
             }
         });
     } catch (error) {
-        // If it's a known error, pass it to the error handler
         if (error instanceof ApiError) {
             return next(error);
         }
 
-        // Handle specific error cases
         if (error.message === 'User already registered') {
             return next(new ApiError(409, 'Email is already registered'));
         }
 
-        // For unexpected errors
         next(new ApiError(500, 'Failed to register user', error));
     }
 };

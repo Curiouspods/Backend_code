@@ -21,9 +21,9 @@ const validateUserRegistration = (data) => {
                 'date.base': 'Date of birth must be a valid date',
                 'date.format': 'Date of birth must be in YYYY-MM-DD format'
             }),
-        industry: Joi.string().valid('Healthcare', 'Digital Engineering', 'Life science', 'Pharmacy')
+        industry: Joi.string().valid('Healthcare', 'Digital Engineering', 'Life science', 'Pharmaceutical Companies', 'Health Insurance', 'Software Development', 'Ed Tech', 'Others', 'Hospitals & Health Systems')
             .messages({
-                'any.only': 'Industry must be one of: Healthcare, Digital Engineering, Life science, Pharmacy'
+                'any.only': 'Industry must be one of: Healthcare, Digital Engineering, Life science, Pharmaceutical Companies,Health Insurance,Software Development,Ed Tech,Hospitals & Health Systems,Others'
             }),
         email: Joi.string().email().required()
             .messages({
@@ -58,6 +58,11 @@ const validateUserRegistration = (data) => {
             .messages({
                 'string.base': 'GitHub ID must be a string'
             }),
+        captcha: Joi.string().required().messages({
+            'string.empty': 'Captcha is required',
+            'any.required': 'Captcha is required'
+        })
+
     });
 
     return schema.validate(data, { abortEarly: false });
@@ -80,9 +85,9 @@ const validateUserUpdate = (data) => {
                 'date.base': 'Date of birth must be a valid date',
                 'date.format': 'Date of birth must be in YYYY-MM-DD format'
             }),
-        industry: Joi.string().valid('Healthcare', 'Digital Engineering', 'Life science', 'Pharmacy')
+         industry: Joi.string().valid('Healthcare', 'Digital Engineering', 'Life science', 'Pharmaceutical Companies', 'Health Insurance', 'Software Development', 'Ed Tech', 'Others', 'Hospitals & Health Systems')
             .messages({
-                'any.only': 'Industry must be one of: Healthcare, Digital Engineering, Life science, Pharmacy'
+                'any.only': 'Industry must be one of: Healthcare, Digital Engineering, Life science, Pharmaceutical Companies,Health Insurance,Software Development,Ed Tech,Hospitals & Health Systems,Others'
             }),
         phone_number: Joi.string().pattern(/^\+?[1-9]\d{1,14}$/).allow(null, '')
             .messages({

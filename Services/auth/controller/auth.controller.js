@@ -3,28 +3,37 @@ const authService = require('../services/auth.service');
 const logger = require('../config/logger');
 const { ApiError } = require('../middleware/error.middleware');
 const passport = require('passport');
+const axios = require('axios');
+
 
 const loginUser = async (req, res, next) => {
     try {
-        const { email, password } = req.body;
+        const { email, password, captchaToken } = req.body;
 
-        if (!email || !password) {
-            throw new ApiError(400, 'Email and password are required');
+        if (!email || !password || !captchaToken) {
+            throw new ApiError(400, 'Email, password, and captcha token are required');
         }
 
-        // Get IP and user agent for logging purposes
+        // Verify CAPTCHA
+        const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+        const captchaVerifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaToken}`;
+
+        const response = await axios.post(captchaVerifyURL);
+        const { success, score } = response.data;
+
+        if (!success || (score !== undefined && score < 0.5)) {
+            throw new ApiError(403, 'Captcha verification failed');
+        }
+
         const ipAddress = req.ip || req.connection.remoteAddress;
         const deviceInfo = req.headers['user-agent'];
 
         logger.info(`Login attempt for email: ${email.substring(0, 3)}...`);
 
-        // Attempt login
         const { user, token } = await authService.loginUser(email, password, ipAddress, deviceInfo);
 
-        // Log successful login
         logger.info(`User logged in successfully: ${user.id}`);
 
-        // Return user info and token
         res.status(200).json({
             status: 'success',
             message: 'Login successful',
@@ -33,12 +42,8 @@ const loginUser = async (req, res, next) => {
         });
 
     } catch (error) {
-        // If it's already an ApiError, just pass it on
-        if (error instanceof ApiError) {
-            return next(error);
-        }
+        if (error instanceof ApiError) return next(error);
 
-        // Log and throw generic error
         logger.error('Login error', {
             error: error.message,
             stack: error.stack
