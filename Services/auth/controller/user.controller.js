@@ -9,6 +9,17 @@ const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 
 const registerUser = async (req, res, next) => {
     try {
+
+        const { error } = validateUserRegistration(req.body);
+        if (error) {
+            const errors = error.details.map(detail => ({
+                field: detail.path.join('.'),
+                message: detail.message
+            }));
+
+            throw new ApiError(400, 'Validation Error', errors);
+        }
+
         // 1. CAPTCHA validation
         const { captcha, ...userData } = req.body;
 
@@ -30,23 +41,12 @@ const registerUser = async (req, res, next) => {
         if (!captchaResponse.data.success) {
             throw new ApiError(400, 'CAPTCHA verification failed');
         }
-
-        // 2. Validate input data
-        const { error } = validateUserRegistration(userData);
-        if (error) {
-            const errors = error.details.map(detail => ({
-                field: detail.path.join('.'),
-                message: detail.message
-            }));
-
-            throw new ApiError(400, 'Validation Error', { errors });
-        }
-
+        
         // 3. Log registration attempt (without sensitive data)
         logger.info(`Registration attempt for email: ${userData.email.substring(0, 3)}...`);
 
         // 4. Register the user
-        const user = await userService.registerUser(userData);
+        const user = await userService.registerUser({ ...userData, captcha });
 
         try {
             await otpService.generateAndSendOTP(user._id, false);

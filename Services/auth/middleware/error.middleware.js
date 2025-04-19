@@ -2,9 +2,10 @@ const logger = require('../config/logger');
 
 // Custom error class for API errors
 class ApiError extends Error {
-    constructor(statusCode, message, stack = '') {
+    constructor(statusCode, message, details = null, stack = '') { // Corrected: details before stack
         super(message);
         this.statusCode = statusCode;
+        this.details = details;
         if (stack) {
             this.stack = stack;
         } else {
@@ -30,16 +31,17 @@ const errorHandler = (err, req, res, next) => {
         stack: err.stack
     });
 
-    // Determine if we should send stack trace (only in development)
     const stack = process.env.NODE_ENV === 'development' ? err.stack : {};
 
     res.status(statusCode).json({
         status: 'error',
         statusCode,
         message,
+        ...(err.details && { errors: err.details }),  // ✅ Add this line
         ...(process.env.NODE_ENV === 'development' && { stack })
     });
 };
+
 
 // Handle 404 errors
 const notFound = (req, res, next) => {
