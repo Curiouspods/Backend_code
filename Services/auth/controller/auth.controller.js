@@ -14,14 +14,20 @@ const loginUser = async (req, res, next) => {
             throw new ApiError(400, 'Email, password, and captcha token are required');
         }
 
-        // Verify CAPTCHA
+        // Verify reCAPTCHA v2
         const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-        const captchaVerifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaToken}`;
+        const captchaVerifyURL = `https://www.google.com/recaptcha/api/siteverify`;
 
-        const response = await axios.post(captchaVerifyURL);
-        const { success, score } = response.data;
+        const response = await axios.post(captchaVerifyURL, null, {
+            params: {
+                secret: secretKey,
+                response: captchaToken
+            }
+        });
 
-        if (!success || (score !== undefined && score < 0.5)) {
+        const { success } = response.data;
+
+        if (!success) {
             throw new ApiError(403, 'Captcha verification failed');
         }
 
@@ -52,6 +58,7 @@ const loginUser = async (req, res, next) => {
         next(new ApiError(500, 'Authentication failed'));
     }
 };
+
 
 const logoutUser = async (req, res, next) => {
     try {
