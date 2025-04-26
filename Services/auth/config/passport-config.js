@@ -46,7 +46,7 @@ passport.use(new GoogleStrategy({
                 emailHash: createEmailHash(profile.emails[0].value), // Add this line
                 industry: 'technology', // Default value or extract from profile
                 dob: profile._json?.birthday || null,  // Date of Birth
-                address: profile._json?.addresses?.[0] || null
+                address: profile._json?.addresses?.[0] || null,
                 status: 'active',
                 provider: 'google',
                 providerId: profile.id,
