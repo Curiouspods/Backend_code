@@ -8,14 +8,13 @@ const logger = require('./logger');
 
 require('dotenv').config(); 
 
-require('dotenv').config();
 const SECRET_KEY = process.env.JWT_SECRET || 'yourSecretKey';
 
 // Google OAuth strategy
 passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: process.env.GOOGLE_CALLBACK_URL,
+    clientID: process.env.GOOGLE_CLIENT_ID || '',
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+    callbackURL: process.env.GOOGLE_CALLBACK_URL || '/api/auth/google/callback',
     passReqToCallback: true
   },
   async (req, accessToken, refreshToken, profile, done) => {
