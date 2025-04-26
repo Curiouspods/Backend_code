@@ -21,53 +21,35 @@ passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: process.env.GOOGLE_CALLBACK_URL || "/api/auth/google/callback",
-    scope: [
-      'profile',
-      'email',
-      'https://www.googleapis.com/auth/user.birthday.read',
-      'https://www.googleapis.com/auth/user.addresses.read'
-    ],
-    accessType: 'offline'  // Needed for refresh tokens
+    scope: ['profile', 'email']
 }, async (accessToken, refreshToken, profile, done) => {
     try {
-        logger.info(`Google authentication attempt for: ${profile.id}`);
+        const email = profile.emails?.[0]?.value;
+        if (!email) throw new Error('No email provided by Google');
 
-        let user = await User.findOne({ email: profile.emails[0].value });
+        let user = await User.findOne({ email: encrypt(email) });
 
         if (!user) {
-            const nameParts = profile.displayName.split(' ');
-            const firstName = nameParts[0];
-            const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : '';
-
-            user = await User.create({
-                first_name: firstName,
-                last_name: lastName,
-                email: encrypt(profile.emails[0].value),
-                emailHash: createEmailHash(profile.emails[0].value), // Add this line
-                industry: 'technology', // Default value or extract from profile
-                dob: profile._json?.birthday || null,  // Date of Birth
-                address: profile._json?.addresses?.[0] || null,
+            const userData = {
+                first_name: encrypt(profile.name?.givenName || ''),
+                last_name: encrypt(profile.name?.familyName || 'Unknown'), // Ensure last_name exists
+                email: encrypt(email),
+                emailHash: createEmailHash(email),
+                industry: 'Ed Tech',
                 status: 'active',
                 provider: 'google',
                 providerId: profile.id,
-                preferences: {
-                    notification_opt_in: false
-                }
-            });
+                preferences: { notification_opt_in: false }
+            };
 
-            logger.info(`New user created via Google authentication: ${user._id}`);
-        } else {
-            logger.info(`Existing user logged in via Google: ${user._id}`);
+            user = await User.create(userData);
+            logger.info(`New Google user created: ${user._id}`);
         }
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
         return done(null, { user, token });
     } catch (error) {
-        logger.error('Google authentication error', {
-            error: error.message,
-            stack: error.stack,
-            profileId: profile.id
-        });
+        logger.error('Google auth error', error);
         return done(error, null);
     }
 }));
