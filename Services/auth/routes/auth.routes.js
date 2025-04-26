@@ -1,8 +1,11 @@
 // auth.routes.js
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 const authController = require('../controller/auth.controller');
 const { authenticateToken } = require('../middleware/auth.middleware');
+
+require('dotenv').config();
 
 // Local authentication routes
 router.post('/login', authController.loginUser);
