@@ -9,6 +9,11 @@ const logger = require('./logger');
 // Load environment variables (only once)
 require('dotenv').config();
 
+const createEmailHash = (email) => {
+    const crypto = require('crypto');
+    return crypto.createHash('sha256').update(email).digest('hex');
+}
+
 const SECRET_KEY = process.env.JWT_SECRET || 'yourSecretKey';
 
 // Google OAuth strategy
@@ -31,6 +36,8 @@ passport.use(new GoogleStrategy({
                 first_name: encrypt(firstName),
                 last_name: encrypt(lastName),
                 email: encrypt(profile.emails[0].value),
+                emailHash: createEmailHash(profile.emails[0].value), // Add this line
+                industry: 'technology', // Default value or extract from profile
                 status: 'active',
                 provider: 'google',
                 providerId: profile.id,
