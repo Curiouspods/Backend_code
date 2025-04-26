@@ -26,14 +26,15 @@ passport.use(new GoogleStrategy({
     try {
         const email = profile.emails?.[0]?.value;
         if (!email) throw new Error('No email provided by Google');
-
-        let user = await User.findOne({ email: encrypt(email) });
+        const encryptedEmail = encrypt(email);
+        
+        let user = await User.findOne({ emailHash: createEmailHash(email) });
 
         if (!user) {
             const userData = {
-                first_name: encrypt(profile.name?.givenName || ''),
-                last_name: encrypt(profile.name?.familyName || 'Unknown'), // Ensure last_name exists
-                email: encrypt(email),
+                first_name: profile.name?.givenName || '',
+                last_name: profile.name?.familyName || 'Unknown', // Ensure last_name exists
+                email: encryptedEmail,
                 emailHash: createEmailHash(email),
                 industry: 'Ed Tech',
                 status: 'active',
