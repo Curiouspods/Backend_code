@@ -20,7 +20,14 @@ const SECRET_KEY = process.env.JWT_SECRET || 'yourSecretKey';
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: process.env.GOOGLE_CALLBACK_URL || "/api/auth/google/callback"
+    callbackURL: process.env.GOOGLE_CALLBACK_URL || "/api/auth/google/callback",
+    scope: [
+      'profile',
+      'email',
+      'https://www.googleapis.com/auth/user.birthday.read',
+      'https://www.googleapis.com/auth/user.addresses.read'
+    ],
+    accessType: 'offline'  // Needed for refresh tokens
 }, async (accessToken, refreshToken, profile, done) => {
     try {
         logger.info(`Google authentication attempt for: ${profile.id}`);
@@ -33,11 +40,13 @@ passport.use(new GoogleStrategy({
             const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : '';
 
             user = await User.create({
-                first_name: encrypt(firstName),
-                last_name: encrypt(lastName),
+                first_name: firstName,
+                last_name: lastName,
                 email: encrypt(profile.emails[0].value),
                 emailHash: createEmailHash(profile.emails[0].value), // Add this line
                 industry: 'technology', // Default value or extract from profile
+                dob: profile._json?.birthday || null,  // Date of Birth
+                address: profile._json?.addresses?.[0] || null
                 status: 'active',
                 provider: 'google',
                 providerId: profile.id,
