@@ -7,11 +7,11 @@ const passport = require('./config/passport-config');
 const { connectDB } = require('./config/db');
 const userRoutes = require('./routes/user.routes');
 const authRoutes = require('./routes/auth.routes');
+const discountRoutes = require('./routes/discount.routes');
 const { errorHandler, notFound } = require('./middleware/error.middleware');
 const logger = require('./config/logger');
-const discountRoutes = require('./routes/discount.routes');
 
-require('dotenv').config();
+dotenv.config();
 
 // Connect to MongoDB
 connectDB().then(() => {
@@ -22,19 +22,24 @@ connectDB().then(() => {
 });
 
 const app = express();
+
+// Root route
 app.get("/", (req, res) => {
     res.send("API is running...");
 });
+
 // Middleware
 app.use(express.json());
-app.use(cors(
-    {
-        origin: 'https://vtex-ai.vercel.app',
-        methods: ['GET', 'POST', 'OPTIONS'],
-        credentials: true
-    }
-));
+
+// ✅ Apply CORS middleware early
+app.use(cors({
+    origin: 'https://vtex-ai.vercel.app',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    credentials: true
+}));
+
 app.use(helmet());
+
 app.use(session({
     secret: process.env.SESSION_SECRET || 'yourSecretKey',
     resave: false,
@@ -66,7 +71,7 @@ app.use(errorHandler);
 
 // Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     logger.info(`Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
     console.log(`Server running on port ${PORT}`);
 });
