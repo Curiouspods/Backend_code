@@ -48,13 +48,10 @@ const userSchema = new mongoose.Schema({
     index: true
   },
   address: {
-<<<<<<< HEAD
     state: { type: String ,requires:true},
-    country: { type: String,required:true } // ISO 3166-1 Alpha-2
-=======
+    country: { type: String,required:true } ,// ISO 3166-1 Alpha-2
     state: { type: String },
     country: { type: String } // ISO 3166-1 Alpha-2
->>>>>>> origin/staging
   },
   status: {
     type: String,
