@@ -85,10 +85,13 @@ const activateUser = async (userId) => {
     });
 };
 
+<<<<<<< HEAD
 const findUserByUsername = async (username) => {
     return await User.findOne({ username: username });
 };
 
+=======
+>>>>>>> origin/staging
 module.exports = {
     createUser,
     findUserByEmailHash,
@@ -103,6 +106,10 @@ module.exports = {
     storeUserOTP,
     findUserWithOTP,
     removeUserOTP,
+<<<<<<< HEAD
     activateUser,
     findUserByUsername
+=======
+    activateUser
+>>>>>>> origin/staging
 };

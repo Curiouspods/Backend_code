@@ -5,10 +5,15 @@ const { ApiError } = require('../middleware/error.middleware');
 const passport = require('passport');
 const axios = require('axios');
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/staging
 const loginUser = async (req, res, next) => {
     try {
         const { email, password, captchaToken } = req.body;
 
+<<<<<<< HEAD
         if (!email || !password) {
             throw new ApiError(400, 'Email and password are required');
         }
@@ -20,6 +25,14 @@ const loginUser = async (req, res, next) => {
 
         // Verify reCAPTCHA
         const secretKey = process.env.SECRET_KEY;
+=======
+        if (!email || !password || !captchaToken) {
+            throw new ApiError(400, 'Email, password, and captcha token are required');
+        }
+
+        // Verify reCAPTCHA v2
+        const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+>>>>>>> origin/staging
         const captchaVerifyURL = `https://www.google.com/recaptcha/api/siteverify`;
 
         const response = await axios.post(captchaVerifyURL, null, {
@@ -32,9 +45,12 @@ const loginUser = async (req, res, next) => {
         const { success } = response.data;
 
         if (!success) {
+<<<<<<< HEAD
             logger.warn('CAPTCHA verification failed', {
                 errorCodes: response.data['error-codes']
             });
+=======
+>>>>>>> origin/staging
             throw new ApiError(403, 'Captcha verification failed');
         }
 
@@ -66,6 +82,10 @@ const loginUser = async (req, res, next) => {
     }
 };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/staging
 const logoutUser = async (req, res, next) => {
     try {
         // Get user ID from authenticated request

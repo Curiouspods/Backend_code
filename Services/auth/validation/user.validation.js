@@ -39,6 +39,7 @@ const validateUserRegistration = (data) => {
                 'string.pattern.base': 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character',
                 'any.required': 'Password is required'
             }),
+<<<<<<< HEAD
         phone_number: Joi.string()
             .pattern(/^\+?[1-9]\d{1,14}$/)
             .max(15)
@@ -47,6 +48,12 @@ const validateUserRegistration = (data) => {
                 'string.pattern.base': 'Phone number must be in E.164 format (e.g., +12345678901)'
             })
             .optional(),        
+=======
+        phone_number: Joi.string().pattern(/^\+?[1-9]\d{1,14}$/).allow(null, '')
+            .messages({
+                'string.pattern.base': 'Phone number must be in E.164 format (e.g., +12345678901)'
+            }),
+>>>>>>> origin/staging
         address: Joi.object({
             state: Joi.string().allow(null, ''),
             country: Joi.string().pattern(/^[A-Z]{2}$/).allow(null, '')
