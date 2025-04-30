@@ -27,7 +27,13 @@ app.get("/", (req, res) => {
 });
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin: 'https://vtex-ai.vercel.app',
+        methods: ['GET', 'POST', 'OPTIONS'],
+        credentials: true
+    }
+));
 app.use(helmet());
 app.use(session({
     secret: process.env.SESSION_SECRET || 'yourSecretKey',
