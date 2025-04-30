@@ -84,14 +84,9 @@ const activateUser = async (userId) => {
         email_verified: true
     });
 };
-
-<<<<<<< HEAD
 const findUserByUsername = async (username) => {
     return await User.findOne({ username: username });
 };
-
-=======
->>>>>>> origin/staging
 module.exports = {
     createUser,
     findUserByEmailHash,
@@ -106,10 +101,7 @@ module.exports = {
     storeUserOTP,
     findUserWithOTP,
     removeUserOTP,
-<<<<<<< HEAD
     activateUser,
-    findUserByUsername
-=======
+    findUserByUsername,
     activateUser
->>>>>>> origin/staging
 };
