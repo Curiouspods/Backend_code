@@ -266,10 +266,86 @@ const changePassword = async (userId, currentPassword, newPassword) => {
         throw new ApiError(500, 'Failed to change password');
     }
 };
+const registerOAuthUser = async (userData) => {
+    try {
+        const {
+            email,
+            first_name,
+            last_name,
+            twitter_id,
+            linkedin_id,
+            provider,
+            status = 'active',
+            email_verified = true
+        } = userData;
 
+        // Create consistent hash for email for lookup purposes
+        const crypto = require('crypto');
+        const emailHash = email ? 
+            crypto.createHash('sha256').update(email.toLowerCase()).digest('hex') : 
+            null;
+
+        // If email is provided, check if it's already registered
+        if (emailHash) {
+            const existingUserByEmail = await userRepository.findUserByEmailHash(emailHash);
+            if (existingUserByEmail) {
+                // If the user exists but doesn't have this OAuth provider linked, we can update
+                // This should be handled in auth.service, but we double-check here
+                throw new ApiError(409, 'Email already registered');
+            }
+        }
+
+        try {
+            // Encrypt email if available
+            const encryptedEmail = email ? encrypt(email) : null;
+
+            // Create new user object
+            const newUser = await userRepository.createUser({
+                first_name: first_name || '',
+                last_name: last_name || '',
+                email: encryptedEmail,
+                emailHash: emailHash,
+                password: null, // OAuth users don't have passwords initially
+                twitter_id: twitter_id || null,
+                linkedin_id: linkedin_id || null,
+                status: status,
+                email_verified: email_verified,
+                provider: provider,
+                created_at: new Date(),
+                login_history: [{
+                    timestamp: new Date(),
+                    method: provider,
+                    success: true
+                }]
+            });
+
+            return newUser;
+        } catch (encryptionError) {
+            logger.error('Encryption failed during OAuth user registration', {
+                error: encryptionError.message,
+                stack: encryptionError.stack
+            });
+            throw new ApiError(500, 'Failed to secure user data');
+        }
+    } catch (error) {
+        // If it's already an ApiError, just rethrow it
+        if (error instanceof ApiError) {
+            throw error;
+        }
+
+        // Log and throw appropriate error
+        logger.error('OAuth user registration failed', {
+            error: error.message,
+            stack: error.stack
+        });
+
+        throw new ApiError(500, error.message || 'OAuth registration failed');
+    }
+};
 module.exports = {
     registerUser,
     getUserProfile,
     updateUserProfile,
-    changePassword
+    changePassword,
+    registerOAuthUser
 };

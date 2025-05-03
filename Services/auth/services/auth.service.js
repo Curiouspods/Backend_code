@@ -1,53 +1,50 @@
 // auth.service.js
+const axios = require('axios');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const userRepository = require('../repository/user.repository');
+const userService = require('./user.service');
 const { encrypt } = require('../config/encryption');
 const logger = require('../config/logger');
 const { ApiError } = require('../middleware/error.middleware');
 
 const SECRET_KEY = process.env.JWT_SECRET || 'yourSecretKey';
-const TOKEN_EXPIRY = '7d';
+const TOKEN_EXPIRY = process.env.JWT_EXPIRES_IN || '7d';
+
+// Twitter OAuth settings
+const TWITTER_CLIENT_ID = process.env.TWITTER_CLIENT_ID;
+const TWITTER_CLIENT_SECRET = process.env.TWITTER_CLIENT_SECRET;
+const TWITTER_CALLBACK_URL = process.env.TWITTER_CALLBACK_URL;
+
+// LinkedIn OAuth settings
+const LINKEDIN_CLIENT_ID = process.env.LINKEDIN_CLIENT_ID;
+const LINKEDIN_CLIENT_SECRET = process.env.LINKEDIN_CLIENT_SECRET;
+const LINKEDIN_CALLBACK_URL = process.env.LINKEDIN_CALLBACK_URL;
+
+const generateToken = (user) => {
+    const payload = typeof user === 'object' ? {
+        id: user._id,
+        email: user.emailHash,
+        status: user.status
+    } : { id: user };
+
+    return jwt.sign(payload, SECRET_KEY, { expiresIn: TOKEN_EXPIRY });
+};
 
 const loginUser = async (email, password, ipAddress = null, deviceInfo = null) => {
     try {
-        // Create consistent hash for email for lookup
         const emailHash = crypto.createHash('sha256').update(email.toLowerCase()).digest('hex');
-
-        // Find user by email hash
         const user = await userRepository.findUserByEmailHash(emailHash);
 
-        if (!user) {
-            logger.warn(`Login failed: No user found for email hash ${emailHash.substring(0, 8)}...`);
-            throw new ApiError(401, 'Invalid credentials');
-        }
+        if (!user) throw new ApiError(401, 'Invalid credentials');
+        if (user.provider !== 'local' && !user.password) throw new ApiError(400, `This account uses ${user.provider} authentication`);
+        if (user.status !== 'active') throw new ApiError(403, 'Account is not active');
 
-        // Check if user is using social login only
-        if (user.provider !== 'local' && !user.password) {
-            logger.warn(`Login attempted with password for social auth account: ${user._id}`);
-            throw new ApiError(400, `This account uses ${user.provider} authentication`);
-        }
-
-        // Check if user account is active
-        if (user.status !== 'active') {
-            logger.warn(`Login attempt for inactive account: ${user._id}`);
-            throw new ApiError(403, 'Account is not active');
-        }
-
-        // Verify password
-        // Verify password
         const isPasswordValid = await bcrypt.compare(password, user.password);
-        if (!isPasswordValid) {
-            logger.warn(`Login failed: Invalid password for user ${user._id}`);
-            throw new ApiError(401, 'Invalid credentials');
-        }
+        if (!isPasswordValid) throw new ApiError(401, 'Invalid credentials');
 
-
-        // Generate JWT token
-        const token = generateToken(user._id);
-
-        // Update last login timestamp
+        const token = generateToken(user);
         await userRepository.updateUserLastLogin(user._id, ipAddress, deviceInfo);
 
         return {
@@ -58,80 +55,191 @@ const loginUser = async (email, password, ipAddress = null, deviceInfo = null) =
             token
         };
     } catch (error) {
-        // If it's already an ApiError, just rethrow it
-        if (error instanceof ApiError) {
-            throw error;
-        }
+        if (error instanceof ApiError) throw error;
 
-        // Log and throw appropriate error
-        logger.error('User login failed', {
-            error: error.message,
-            stack: error.stack
-        });
-
+        logger.error('User login failed', { error: error.message, stack: error.stack });
         throw new ApiError(500, error.message || 'Login failed');
     }
 };
 
 const logoutUser = async (userId, token = null) => {
     try {
-        // Update last activity timestamp
         await userRepository.updateUserLastActivity(userId);
 
-        // Optional: Blacklist the token if you want to invalidate it server-side
         if (token) {
             try {
                 const decoded = jwt.verify(token, SECRET_KEY, { ignoreExpiration: true });
                 const expiryDate = new Date(decoded.exp * 1000);
                 await userRepository.blacklistToken(token, userId, expiryDate);
             } catch (tokenError) {
-                logger.warn('Could not decode token for blacklisting', {
-                    error: tokenError.message,
-                    userId
-                });
-                // Continue with logout regardless of token decode errors
+                logger.warn('Could not decode token for blacklisting', { error: tokenError.message, userId });
             }
         }
 
         return true;
     } catch (error) {
-        logger.error('Logout error', {
-            error: error.message,
-            stack: error.stack,
-            userId
-        });
-
+        logger.error('Logout error', { error: error.message, stack: error.stack, userId });
         throw new ApiError(500, 'Logout failed');
     }
 };
 
-const generateToken = (userId) => {
+const handleOAuthLogin = async (profile, provider) => {
     try {
-        return jwt.sign({ id: userId }, SECRET_KEY, { expiresIn: TOKEN_EXPIRY });
+        logger.info(`${provider} OAuth login attempt for: ${profile.email || 'No email provided'}`);
+
+        let userData = {};
+        if (provider === 'twitter') {
+            userData = {
+                email: profile.email,
+                first_name: profile.name?.split(' ')[0] || '',
+                last_name: profile.name?.split(' ').slice(1).join(' ') || '',
+                twitter_id: profile.id,
+                provider: 'twitter',
+                status: 'active',
+                email_verified: true
+            };
+        } else if (provider === 'linkedin') {
+            userData = {
+                email: profile.email,
+                first_name: profile.localizedFirstName || profile.given_name || '',
+                last_name: profile.localizedLastName || profile.family_name || '',
+                linkedin_id: profile.id,
+                provider: 'linkedin',
+                status: 'active',
+                email_verified: true
+            };
+        }
+
+        if (userData.email) {
+            const emailHash = crypto.createHash('sha256').update(userData.email.toLowerCase()).digest('hex');
+            const existingUser = await userRepository.findUserByEmailHash(emailHash);
+
+            if (existingUser) {
+                const updateData = {};
+                if (provider === 'twitter' && !existingUser.twitter_id) updateData.twitter_id = userData.twitter_id;
+                else if (provider === 'linkedin' && !existingUser.linkedin_id) updateData.linkedin_id = userData.linkedin_id;
+
+                if (Object.keys(updateData).length > 0) {
+                    await userRepository.updateUser(existingUser._id, updateData);
+                }
+
+                const token = generateToken(existingUser);
+                return {
+                    user: {
+                        id: existingUser._id,
+                        status: existingUser.status,
+                        email_verified: existingUser.email_verified
+                    },
+                    token,
+                    isNewUser: false
+                };
+            }
+        }
+
+        const newUser = await userService.registerOAuthUser(userData);
+        const token = generateToken(newUser);
+
+        return {
+            user: {
+                id: newUser._id,
+                status: newUser.status,
+                email_verified: newUser.email_verified
+            },
+            token,
+            isNewUser: true
+        };
     } catch (error) {
-        logger.error('Token generation failed', {
-            error: error.message,
-            stack: error.stack,
-            userId
-        });
-        throw new ApiError(500, 'Authentication token generation failed');
+        logger.error(`${provider} OAuth login failed`, { error: error.message, stack: error.stack });
+        throw new ApiError(500, `${provider} login failed: ${error.message}`);
     }
 };
 
-const verifyToken = (token) => {
+const handleTwitterAuth = async (code) => {
     try {
-        return jwt.verify(token, SECRET_KEY);
-    } catch (error) {
-        logger.error('Token verification failed', {
-            error: error.message
+        const tokenResponse = await axios.post('https://api.twitter.com/2/oauth2/token', null, {
+            params: {
+                code,
+                grant_type: 'authorization_code',
+                client_id: TWITTER_CLIENT_ID,
+                redirect_uri: TWITTER_CALLBACK_URL,
+                code_verifier: 'challenge'
+            },
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            auth: {
+                username: TWITTER_CLIENT_ID,
+                password: TWITTER_CLIENT_SECRET
+            }
         });
-        throw new ApiError(401, 'Invalid or expired token');
+
+        const { access_token } = tokenResponse.data;
+
+        const userResponse = await axios.get('https://api.twitter.com/2/users/me', {
+            headers: {
+                Authorization: `Bearer ${access_token}`
+            },
+            params: {
+                'user.fields': 'id,name,username,profile_image_url,email'
+            }
+        });
+
+        const profile = userResponse.data.data;
+        return await handleOAuthLogin(profile, 'twitter');
+    } catch (error) {
+        logger.error('Twitter OAuth process failed', { error: error.message, stack: error.stack });
+        throw new ApiError(500, `Twitter authentication failed: ${error.message}`);
+    }
+};
+
+const handleLinkedInAuth = async (code) => {
+    try {
+        const tokenResponse = await axios.post('https://www.linkedin.com/oauth/v2/accessToken', null, {
+            params: {
+                grant_type: 'authorization_code',
+                code,
+                redirect_uri: LINKEDIN_CALLBACK_URL,
+                client_id: LINKEDIN_CLIENT_ID,
+                client_secret: LINKEDIN_CLIENT_SECRET
+            },
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        });
+
+        const { access_token } = tokenResponse.data;
+
+        const profileResponse = await axios.get('https://api.linkedin.com/v2/me', {
+            headers: {
+                Authorization: `Bearer ${access_token}`
+            },
+            params: {
+                projection: '(id,localizedFirstName,localizedLastName)'
+            }
+        });
+
+        const emailResponse = await axios.get('https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))', {
+            headers: {
+                Authorization: `Bearer ${access_token}`
+            }
+        });
+
+        const profile = {
+            ...profileResponse.data,
+            email: emailResponse.data.elements?.[0]?.['handle~']?.emailAddress
+        };
+
+        return await handleOAuthLogin(profile, 'linkedin');
+    } catch (error) {
+        logger.error('LinkedIn OAuth process failed', { error: error.message, stack: error.stack });
+        throw new ApiError(500, `LinkedIn authentication failed: ${error.message}`);
     }
 };
 
 module.exports = {
     loginUser,
     logoutUser,
-    generateToken,
-    verifyToken
+    handleTwitterAuth,
+    handleLinkedInAuth,
+    generateToken
 };

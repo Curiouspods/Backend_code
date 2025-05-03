@@ -85,6 +85,24 @@ const activateUser = async (userId) => {
     });
 };
 
+const findUserByTwitterId = async (twitterId) => {
+    try {
+        const user = await User.findOne({ twitter_id: twitterId });
+        return user;
+    } catch (error) {
+        throw new Error(`Error finding user by Twitter ID: ${error.message}`);
+    }
+};
+
+const findUserByLinkedInId = async (linkedinId) => {
+    try {
+        const user = await User.findOne({ linkedin_id: linkedinId });
+        return user;
+    } catch (error) {
+        throw new Error(`Error finding user by LinkedIn ID: ${error.message}`);
+    }
+};
+
 module.exports = {
     createUser,
     findUserByEmailHash,
@@ -99,5 +117,7 @@ module.exports = {
     storeUserOTP,
     findUserWithOTP,
     removeUserOTP,
-    activateUser
+    activateUser,
+    findUserByTwitterId,
+    findUserByLinkedInId
 };

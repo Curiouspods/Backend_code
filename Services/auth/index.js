@@ -27,7 +27,14 @@ app.get("/", (req, res) => {
 });
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin: 'http://localhost:3001/',  
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
+        credentials: true 
+    }
+));
 app.use(helmet());
 app.use(session({
     secret: process.env.SESSION_SECRET || 'yourSecretKey',

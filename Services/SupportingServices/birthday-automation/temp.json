@@ -1,0 +1,45 @@
+{
+    "email": "vtex2025health1@gmail.com",
+    "emailHash": "hashedEmail123",
+    "password": "hashedPassword",
+    "firstName": "vtex",
+    "lastName": "Doe",
+    "dateOfBirth": "1990-05-03T00:00:00.000Z",
+    "phone_number": "+1234568890",
+    "phoneHash": "hashedPhone123",
+    "address": {
+      "state": "CA",
+      "country": "US"
+    },
+    "twitter_id": "vtex_twitter",
+    "linkedin_id": "vtex_linkedin",
+    "github_id": "vtex_github",
+    "provider": "google",
+    "providerId": "google123",
+    "industry": "Software",
+    "status": "active",
+    "email_verified": true,
+    "otp": {
+      "code": "123456",
+      "expiresAt": "2025-05-03T12:00:00.000Z",
+      "otpResendCount": 1,
+      "otpResendTimestamp": "2025-05-03T10:00:00.000Z"
+    },
+    "preferences": {
+      "notification_opt_in": true
+    },
+    "isActive": true,
+    "lastLogin": "2025-04-01T10:00:00.000Z",
+    "last_activity": "2025-04-30T15:00:00.000Z",
+    "login_history": [
+      {
+        "timestamp": "2025-04-30T15:00:00.000Z",
+        "ip": "192.168.1.1",
+        "device": "Chrome on Windows"
+      }
+    ],
+    "birthdayEmailSent": {
+      "2024": true
+    }
+  }
+  
