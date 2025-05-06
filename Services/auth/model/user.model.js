@@ -27,12 +27,16 @@ const otpSchema = new mongoose.Schema({
 }, { _id: false });
 
 const userSchema = new mongoose.Schema({
+  twitter_id: { type: String, unique: true, sparse: true },
+  linkedin_id: { type: String, unique: true, sparse: true },
+  github_id: { type: String, unique: true, sparse: true },
+  provider: { type: String, enum: ['local', 'twitter', 'linkedin', 'github'], default: 'local' },
   first_name: { type: String, required: true },
   last_name: { type: String, required: true },
   DoB: { type: Date },
   industry: {
     type: String,
-    required:true
+    required: true
   },
   email: { type: String, required: true, unique: true },
   emailHash: {

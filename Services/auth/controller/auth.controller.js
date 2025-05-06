@@ -5,6 +5,12 @@ const { ApiError } = require('../middleware/error.middleware');
 const passport = require('passport');
 const axios = require('axios');
 
+<<<<<<< HEAD
+=======
+/**
+ * Login user with email, password, and reCAPTCHA
+ */
+>>>>>>> a4d93229a3373ea1406c52c7dd1c9b082756b235
 const loginUser = async (req, res, next) => {
     try {
         const { email, password, captchaToken } = req.body;
@@ -66,18 +72,20 @@ const loginUser = async (req, res, next) => {
     }
 };
 
+<<<<<<< HEAD
+=======
+/**
+ * Logout user
+ */
+>>>>>>> a4d93229a3373ea1406c52c7dd1c9b082756b235
 const logoutUser = async (req, res, next) => {
     try {
-        // Get user ID from authenticated request
         const userId = req.user.id;
-
-        // Get token if you want to blacklist it (optional)
         const authHeader = req.headers.authorization;
-        const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN format
+        const token = authHeader && authHeader.split(' ')[1];
 
         logger.info(`Logout requested for user: ${userId}`);
 
-        // Process logout
         await authService.logoutUser(userId, token);
 
         logger.info(`User logged out successfully: ${userId}`);
@@ -98,6 +106,9 @@ const logoutUser = async (req, res, next) => {
     }
 };
 
+/**
+ * Google OAuth Initiation
+ */
 const handleGoogleAuth = (req, res, next) => {
     logger.info('Google authentication initiated');
     passport.authenticate('google', {
@@ -106,6 +117,9 @@ const handleGoogleAuth = (req, res, next) => {
     })(req, res, next);
 };
 
+/**
+ * Google OAuth Callback
+ */
 const handleGoogleCallback = (req, res, next) => {
     passport.authenticate('google', {
         failureRedirect: '/login',
@@ -134,6 +148,9 @@ const handleGoogleCallback = (req, res, next) => {
     })(req, res, next);
 };
 
+/**
+ * LinkedIn OAuth Initiation
+ */
 const handleLinkedInAuth = (req, res, next) => {
     logger.info('LinkedIn authentication initiated');
     passport.authenticate('linkedin', {
@@ -141,6 +158,9 @@ const handleLinkedInAuth = (req, res, next) => {
     })(req, res, next);
 };
 
+/**
+ * LinkedIn OAuth Callback (Passport)
+ */
 const handleLinkedInCallback = (req, res, next) => {
     passport.authenticate('linkedin', {
         failureRedirect: '/login',
@@ -169,11 +189,85 @@ const handleLinkedInCallback = (req, res, next) => {
     })(req, res, next);
 };
 
+/**
+ * Twitter OAuth Callback (via API code)
+ */
+const twitterCallback = async (req, res, next) => {
+    try {
+        const { code } = req.body;
+
+        if (!code) {
+            throw new ApiError(400, 'Twitter authorization code is required');
+        }
+
+        const result = await authService.handleTwitterAuth(code);
+
+        res.status(200).json({
+            status: 'success',
+            message: result.isNewUser ? 'User registered successfully via Twitter' : 'Logged in via Twitter',
+            data: {
+                user: result.user,
+                token: result.token,
+                isNewUser: result.isNewUser
+            }
+        });
+    } catch (error) {
+        if (error instanceof ApiError) return next(error);
+
+        logger.error('Twitter OAuth callback failed', {
+            error: error.message,
+            stack: error.stack
+        });
+
+        next(new ApiError(500, 'Twitter authentication failed'));
+    }
+};
+
+/**
+ * LinkedIn OAuth Callback (via API code)
+ */
+const linkedinCallback = async (req, res, next) => {
+    try {
+        const { code } = req.body;
+
+        if (!code) {
+            throw new ApiError(400, 'LinkedIn authorization code is required');
+        }
+
+        const result = await authService.handleLinkedInAuth(code);
+
+        res.status(200).json({
+            status: 'success',
+            message: result.isNewUser ? 'User registered successfully via LinkedIn' : 'Logged in via LinkedIn',
+            data: {
+                user: result.user,
+                token: result.token,
+                isNewUser: result.isNewUser
+            }
+        });
+    } catch (error) {
+        if (error instanceof ApiError) return next(error);
+
+        logger.error('LinkedIn OAuth callback failed', {
+            error: error.message,
+            stack: error.stack
+        });
+
+        next(new ApiError(500, 'LinkedIn authentication failed'));
+    }
+};
+
 module.exports = {
     loginUser,
     logoutUser,
     handleGoogleAuth,
     handleGoogleCallback,
     handleLinkedInAuth,
+<<<<<<< HEAD
     handleLinkedInCallback
+=======
+    handleLinkedInCallback,
+    twitterCallback,
+    linkedinCallback
+>>>>>>> a4d93229a3373ea1406c52c7dd1c9b082756b235
 };
