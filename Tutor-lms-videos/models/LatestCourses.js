@@ -12,16 +12,16 @@ const latestCourseSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  date: {
-    type: Date,
-    required: true
-  },
   link: {
     type: String,
     required: true
   },
-  excerpt: {
-    type: String,
+  enrollment_count:{
+    type:Number,
+    required:true
+  },
+  ratings:{
+    type:Number,
   }
 }, { timestamps: true });
 

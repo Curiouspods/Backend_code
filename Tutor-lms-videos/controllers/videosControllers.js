@@ -17,7 +17,7 @@ redisClient.connect();
 //latest posted courses
 async function fetchAllCourses() {
   try {
-    const url = `${WP_SITE_URL}/wp-json/tutor/v1/courses?order=desc&orderby=ID&paged=1 `;
+    const url = `${WP_SITE_URL}/wp-json/custom-tutor/v1/latest-course`;
     const res = await axios.get(url, {
       params: {
         orderby: "date",
@@ -29,12 +29,14 @@ async function fetchAllCourses() {
         password: process.env.TUTOR_SECRET_KEY,
       },
     });
-    return res.data.data.posts.map((course) => ({
-      id: course.ID,
-      title: course.post_title,
-      date: course.post_date,
-      link: course.thumbnail_url,
-    }));
+    //console.log(res.data);
+    return {
+      id: res.data.course_id,
+      title: res.data.course_title,
+      link: res.data.course_url,
+      enrollment_count: res.data.enrollment_count,
+      ratings: res.data.ratings,
+    }
   } catch (error) {
     console.log(error);
   }
@@ -46,18 +48,17 @@ const getLatestPosted = async (req, res) => {
     const cached = await redisClient.get(cacheKey);
     const courses = await fetchAllCourses();
 
-    // for (const course of courses) {
-    //   const exists = await LatestCourses.exists({ id: course.id });
-    //   if (!exists) {
-    //     const newCourse = new LatestCourses({
-    //      id: course.ID,
-    // title: course.post_title,
-    // date: course.post_date,
-    // link: course.thumbnail_url,
-    //     });
-    //     await newCourse.save();
-    //   }
-    // }
+      const exists = await LatestCourses.exists({ id: courses.id });
+      if (!exists) {
+        const newCourse = new LatestCourses({
+          id: courses.id,
+          title: courses.title,
+          link: courses.link,
+          enrollment_count:courses.enrollment_count,
+          ratings: courses.ratings,
+        });
+        await newCourse.save();
+    }
 
     await redisClient.set(cacheKey, JSON.stringify(courses), { EX: CACHE_TTL });
 
@@ -131,7 +132,12 @@ async function fetchEnrolledCourses1() {
       password: process.env.TUTOR_SECRET_KEY,
     },
   });
-  return res.data;
+  return res.data.data.posts.map((course) => ({
+    id: course.ID,
+    title: course.post_title,
+    date: course.post_date,
+    link: course.thumbnail_url,
+  }));
 }
 
 async function fetchSpecificCourse(courseId) {
@@ -163,7 +169,7 @@ function calculateTrendingScore({ enrollments, recentReviews, avgRating }) {
 }
 
 async function getTrendingCourses(req, res) {
-  const courses = await fetchAllCourses1();
+  const courses = await fetchEnrolledCourses1();
   const enrichedCourses = await Promise.all(
     courses.map(async (course) => {
       try {
@@ -196,6 +202,7 @@ async function getTrendingCourses(req, res) {
       });
       await newCourse.save();
     }
+
   }
   res.status(200).json(sorted);
 }
