@@ -5,7 +5,7 @@ const userRepository = require('../repository/user.repository');
 const { encrypt,decrypt } = require('../config/encryption');
 const logger = require('../config/logger');
 const { ApiError } = require('../middleware/error.middleware');
-
+const otpService = require('../services/otpService');
 const SALT_ROUNDS = 10;
 
 const registerUser = async (userData) => {

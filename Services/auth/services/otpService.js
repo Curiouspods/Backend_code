@@ -8,7 +8,7 @@ const { ApiError } = require('../middleware/error.middleware');
 // OTP configuration
 const OTP_LENGTH = 6;
 const OTP_EXPIRY_MINUTES = 15;
-const MAX_OTP_RESEND_COUNT = 3;
+const MAX_OTP_RESEND_COUNT = 20;
 
 // Create a transporter for sending emails
 const transporter = nodemailer.createTransport({
@@ -157,10 +157,20 @@ const verifyOTPAndActivateUser = async (userId, otpCode) => {
             throw new ApiError(400, 'Verification code has expired');
         }
 
+        // Log values before comparing OTP
+        logger.info('Verifying OTP', {
+            userId,
+            expected: user.otp.code,
+            provided: otpCode,
+            expiresAt: user.otp.expiresAt,
+            now: new Date()
+        });
+        console.log("Stored OTP:", user.otp.code, "Provided OTP:", otpCode);
         // Verify OTP code
         if (user.otp.code !== otpCode) {
             throw new ApiError(400, 'Invalid verification code');
         }
+
 
         // Mark user as verified and active
         await userRepository.activateUser(userId);
