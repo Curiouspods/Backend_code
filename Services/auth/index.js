@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
 // Middleware
 app.use(express.json());
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 // ✅ Apply CORS middleware early
 app.use(cors({
@@ -49,6 +50,13 @@ app.use(cors({
     credentials: true
 }));
 >>>>>>> a4d93229a3373ea1406c52c7dd1c9b082756b235
+=======
+app.use(cors({
+    origin: '*', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+>>>>>>> 6de6508767c3e41097f1c0bc93e14d8b2b6ecd57
 app.use(helmet());
 
 app.use(session({
