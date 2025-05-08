@@ -6,10 +6,6 @@ const { encrypt, decrypt } = require('../config/encryption');
 const logger = require('../config/logger');
 const { ApiError } = require('../middleware/error.middleware');
 const otpService = require('../services/otpService');
-<<<<<<< HEAD
-
-=======
->>>>>>> 6de6508767c3e41097f1c0bc93e14d8b2b6ecd57
 const SALT_ROUNDS = 10;
 
 const isUsernameTaken = async (username) => {
