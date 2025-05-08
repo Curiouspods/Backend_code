@@ -2,8 +2,8 @@ name: Daily Mirror Backup
 
 on:
   schedule:
-    - cron: '0 1 * * *' # Runs every day at 1 AM UTC
-  workflow_dispatch:      # Allows manual run from GitHub
+    - cron: '0 1 * * *'  # every day at 1 AM UTC
+  workflow_dispatch:      # optional: allows manual run from GitHub UI
 
 jobs:
   mirror:
@@ -13,7 +13,13 @@ jobs:
         run: |
           git config --global user.name "Backup Bot"
           git config --global user.email "backup@bot.com"
-          git clone --mirror https://github.com/Vtexhealthtech/mirror_backup.git
-          cd mirror_backup.git
-          git remote set-url --push origin https://stacy:${{ secrets.GH_PAT }}@github.com/stacy/curiouspods-backup.git
+          
+          # Clone the curiouspods/backend repo with --mirror
+          git clone --mirror https://github.com/curiouspods/backend.git
+          cd backend.git
+
+          # Set the push URL to the backup repo (Vtexhealthtech/mirror_backup)
+          git remote set-url --push origin https://Vtexhealthtech:${{ secrets.GH_PAT }}@github.com/Vtexhealthtech/mirror_backup.git
+
+          # Push all branches, tags, and refs to backup
           git push --mirror
