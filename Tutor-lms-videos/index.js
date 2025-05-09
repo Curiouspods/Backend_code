@@ -8,6 +8,7 @@ const {connectDB} = require('./config/db');
 dotenv.config();
 
 const videosRoutes = require('./routes/videosRoutes'); 
+const videoRoutesFromDB = require('./routes/videoRoutesFromDB')
 const { connectClient } = require('./config/redis');
 
 // Connect to MongoDB
@@ -33,6 +34,7 @@ const startServer = async () => {
   startServer();
 
 app.use('/api/videos', videosRoutes);
+app.use('/api/videosFromDB', videoRoutesFromDB);
 
 const PORT = process.env.PORT || 3000;
 

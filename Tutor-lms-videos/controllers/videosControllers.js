@@ -48,17 +48,35 @@ const getLatestPosted = async (req, res) => {
     const cached = await redisClient.get(cacheKey);
     const courses = await fetchAllCourses();
 
-      const exists = await LatestCourses.exists({ id: courses.id });
-      if (!exists) {
-        const newCourse = new LatestCourses({
-          id: courses.id,
-          title: courses.title,
-          link: courses.link,
-          enrollment_count:courses.enrollment_count,
-          ratings: courses.ratings,
-        });
-        await newCourse.save();
+    const today = new Date();
+    const twoWeeksLater = new Date();
+    twoWeeksLater.setDate(today.getDate() + 14);
+
+    const flag = today <= twoWeeksLater ? 'active' : 'inactive';
+
+    const exists = await LatestCourses.exists({ id: courses.id });
+    if (!exists) {
+      const newCourse = new LatestCourses({
+        id: courses.id,
+        title: courses.title,
+        link: courses.link,
+        enrollment_count: courses.enrollment_count,
+        ratings: courses.ratings,
+        valid_from: today,
+        valid_to: twoWeeksLater,
+        flag: flag,
+      });
+      await newCourse.save();
     }
+
+    // Delete inactive entries older than 3 months
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+
+    await LatestCourses.deleteMany({
+      flag: 'inactive',
+      valid_to: { $lt: threeMonthsAgo },
+    });
 
     await redisClient.set(cacheKey, JSON.stringify(courses), { EX: CACHE_TTL });
 
@@ -68,6 +86,7 @@ const getLatestPosted = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
 
 //Top Rated Courses
 async function fetchEnrolledCourses() {
@@ -100,6 +119,12 @@ const getTopRatedCourses = async (req, res) => {
   try {
     const cached = await redisClient.get(REDIS_KEY);
     const courses = await fetchEnrolledCourses();
+
+    const today = new Date();
+    const twoWeeksLater = new Date();
+    twoWeeksLater.setDate(today.getDate() + 14);
+    const flag = today <= twoWeeksLater ? 'active' : 'inactive';
+
     for (const course of courses) {
       const exists = await TopRatedCourses.exists({ id: course.id });
       if (!exists) {
@@ -109,10 +134,23 @@ const getTopRatedCourses = async (req, res) => {
           rating: course.rating,
           reviews: course.reviews,
           link: course.link,
+          valid_from: today,
+          valid_to: twoWeeksLater,
+          flag: flag, // Always active on creation
         });
         await newCourse.save();
       }
     }
+
+    // Delete inactive entries older than 3 months
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+
+    await TopRatedCourses.deleteMany({
+      flag: 'inactive',
+      valid_to: { $lt: threeMonthsAgo },
+    });
+
     await redisClient.set(REDIS_KEY, JSON.stringify(courses), {
       EX: CACHE_TTL,
     });
@@ -122,6 +160,7 @@ const getTopRatedCourses = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
 
 //trending courses
 async function fetchEnrolledCourses1() {
@@ -169,43 +208,64 @@ function calculateTrendingScore({ enrollments, recentReviews, avgRating }) {
 }
 
 async function getTrendingCourses(req, res) {
-  const courses = await fetchEnrolledCourses1();
-  const enrichedCourses = await Promise.all(
-    courses.map(async (course) => {
-      try {
-        const metrics = await fetchSpecificCourse(course.id);
+  try {
+    const courses = await fetchEnrolledCourses1();
+    const enrichedCourses = await Promise.all(
+      courses.map(async (course) => {
+        try {
+          const metrics = await fetchSpecificCourse(course.id);
+          return {
+            ...course,
+            trendingScore: calculateTrendingScore(metrics),
+          };
+        } catch (error) {
+          console.error("Error fetching metrics for course ID", course.id, error);
+          return { ...course, trendingScore: 0 };
+        }
+      })
+    );
 
-        return {
-          ...course,
-          trendingScore: calculateTrendingScore(metrics),
-        };
-      } catch (error) {
-        console.error("Error fetching metrics for course ID", course.id, error);
-        return { ...course, trendingScore: 0 };
+    const sorted = enrichedCourses
+      .sort((a, b) => b.trendingScore - a.trendingScore)
+      .slice(0, 5);
+
+    const today = new Date();
+    const twoWeeksLater = new Date();
+    twoWeeksLater.setDate(today.getDate() + 14);
+    const flag = today <= twoWeeksLater ? 'active' : 'inactive';
+
+    for (const course of sorted) {
+      const exists = await TrendingCourses.exists({ id: course.id });
+      if (!exists) {
+        const newCourse = new TrendingCourses({
+          id: course.id,
+          title: course.title,
+          date: course.date,
+          trendingScore: course.trendingScore,
+          link: course.link,
+          valid_from: today,
+          valid_to: twoWeeksLater,
+          flag: flag,
+        });
+        await newCourse.save();
       }
-    })
-  );
-
-  const sorted = enrichedCourses
-    .sort((a, b) => b.trendingScore - a.trendingScore)
-    .slice(0, 5);
-
-  for (const course of sorted) {
-    const exists = await TrendingCourses.exists({ id: course.id });
-    if (!exists) {
-      const newCourse = new TrendingCourses({
-        id: course.id,
-        title: course.title,
-        date: course.date,
-        trendingScore: course.trendingScore,
-        link: course.link,
-      });
-      await newCourse.save();
     }
+    // Delete inactive entries older than 3 months
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
 
+    await TrendingCourses.deleteMany({
+      flag: 'inactive',
+      valid_to: { $lt: threeMonthsAgo },
+    });
+
+    res.status(200).json(sorted);
+  } catch (err) {
+    console.error("Error in getTrendingCourses:", err);
+    res.status(500).json({ error: err.message });
   }
-  res.status(200).json(sorted);
 }
+
 
 // Export all functions
 module.exports = {
