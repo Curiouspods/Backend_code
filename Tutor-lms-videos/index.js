@@ -9,7 +9,6 @@ dotenv.config();
 
 const videosRoutes = require('./routes/videosRoutes'); 
 const videoRoutesFromDB = require('./routes/videoRoutesFromDB')
-const { connectClient } = require('./config/redis');
 
 // Connect to MongoDB
 connectDB().then(() => {
@@ -19,19 +18,6 @@ connectDB().then(() => {
   process.exit(1);
 });
 
-const startServer = async () => {
-    try {
-      await connectClient(); // 👈 Connect Redis before starting the server
-      app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
-      });
-    } catch (err) {
-      console.error('Failed to start server:', err);
-      process.exit(1);
-    }
-  };
-  
-  startServer();
 
 app.use('/api/videos', videosRoutes);
 app.use('/api/videosFromDB', videoRoutesFromDB);

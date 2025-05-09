@@ -7,7 +7,7 @@ const TrendingCourses = require("../models/TrendingCourses");
 //fetching latest courses from database
 const getLatestPosted = async (req, res) => {
   try {
-      const courses = await LatestCourses.find({ flag: "active" });
+      const courses = await LatestCourses.find();
       if (courses.length === 0) {
           return res.status(404).json({ message: 'No active latest courses found.' });
       }
