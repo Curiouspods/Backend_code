@@ -13,15 +13,18 @@ const topRatedCourseSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    rating: {
+    ratings: {
       type: Number,
       required: true,
     },
     reviews: {
       type: Number,
-      required: true,
     },
     link: {
+      type: String,
+      required: true,
+    },
+     video: {
       type: String,
       required: true,
     },

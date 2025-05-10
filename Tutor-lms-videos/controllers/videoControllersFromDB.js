@@ -21,7 +21,7 @@ const getLatestPosted = async (req, res) => {
 //fetching top-rated courses from database
 const getTopRatedCourses=async(req,res)=>{
     try {
-        const courses = await TopRatedCourses.find({ flag: "active" });
+        const courses = await TopRatedCourses.find();
         if (courses.length === 0) {
             return res.status(404).json({ message: 'No top rated courses found.' });
         }
@@ -34,7 +34,7 @@ const getTopRatedCourses=async(req,res)=>{
 //fetching trending courses from database
 const getTrendingCourses=async(req,res)=>{
     try {
-        const courses = await TrendingCourses.find({ flag: "active" });
+        const courses = await TrendingCourses.find();
         if (courses.length === 0) {
             return res.status(404).json({ message: 'No trending courses found.' });
         }

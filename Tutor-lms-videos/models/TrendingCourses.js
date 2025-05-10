@@ -13,15 +13,15 @@ const trendingCourseSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    date: {
-      type: Date,
-      required: true,
-    },
     trendingScore: {
       type: Number,
       required: true,
     },
     link: {
+      type: String,
+      required: true,
+    },
+     video: {
       type: String,
       required: true,
     },

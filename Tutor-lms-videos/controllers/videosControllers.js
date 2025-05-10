@@ -238,9 +238,38 @@ async function getTrendingCourses(req, res) {
   }
 }
 
+
+//add sample data
+const addSampleData = async (req, res) => {
+  try {
+
+    const {id,title,link,video,ratings,trendingScore,valid_from}=req.body;
+    const exists = await TrendingCourses.exists({ id:id });
+    if (!exists) {
+      const newCourse = new TrendingCourses({
+        id: id,
+        title: title,
+        link: link,
+        video:video,
+        ratings:ratings,
+        trendingScore:trendingScore,
+        valid_from:valid_from
+      });
+      await newCourse.save();
+    }
+
+    res.status(200).json("data is saved");
+  } catch (err) {
+    console.error("Error in getLatestPosted:", err);
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
 // Export all functions
 module.exports = {
   getLatestPosted,
   getTopRatedCourses,
   getTrendingCourses,
+  addSampleData
 };

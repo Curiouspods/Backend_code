@@ -17,6 +17,10 @@ const latestCourseSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    video:{
+      type: String,
+      required: true,
+    },
     enrollment_count: {
       type: Number,
       required: true,
@@ -24,9 +28,15 @@ const latestCourseSchema = new mongoose.Schema(
     ratings: {
       type: Number,
     },
-    valid_from: { type: Date },
-    valid_to: { type: Date },
-    flag: { type: String, enum: ["active", "inactive"] },
+    valid_from: {
+       type: Date 
+      },
+    valid_to: { 
+      type: Date 
+    },
+    flag: { 
+      type: String, enum: ["active", "inactive"] 
+    },
   },
   { timestamps: true }
 );
