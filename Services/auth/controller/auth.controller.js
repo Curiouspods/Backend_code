@@ -43,10 +43,21 @@ const loginUser = async (req, res, next) => {
 
         logger.info(`Login attempt for email: ${email.substring(0, 3)}...`);
 
-        const { user, token } = await authService.loginUser(email, password, ipAddress, deviceInfo);
+        const result = await authService.loginUser(email, password, ipAddress, deviceInfo);
 
+        if (result && result.verificationRequired) {
+            logger.warn(`Login failed: Account not active for email: ${email}`);
+            return res.status(403).json({
+                status: 'fail',
+                message: result.message,
+                email: result.email,
+                userId: result.userId,
+                verificationRequired: true
+            });
+        }
+
+        const { user, token } = result;
         logger.info(`User logged in successfully: ${user.id}`);
-
         res.status(200).json({
             status: 'success',
             message: 'Login successful',

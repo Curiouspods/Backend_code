@@ -39,7 +39,14 @@ const loginUser = async (email, password, ipAddress = null, deviceInfo = null) =
 
         if (!user) throw new ApiError(401, 'Invalid credentials');
         if (user.provider !== 'local' && !user.password) throw new ApiError(400, `This account uses ${user.provider} authentication`);
-        if (user.status !== 'active') throw new ApiError(403, 'Account is not active');
+        if (user.status !== 'active') {
+            return {
+                verificationRequired: true,
+                message: 'Account is not active. Please verify your email to activate your account.',
+                email: user.email,
+                userId: user._id
+            };
+        }
 
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) throw new ApiError(401, 'Invalid credentials');

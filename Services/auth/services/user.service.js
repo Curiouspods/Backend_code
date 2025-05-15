@@ -289,6 +289,7 @@ const registerOAuthUser = async (userData) => {
     }
 };
 module.exports = {
+    isUsernameTaken,
     registerUser,
     getUserProfile,
     updateUserProfile,

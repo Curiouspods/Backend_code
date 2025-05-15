@@ -9,11 +9,6 @@ const RECAPTCHA_SECRET_KEY = process.env.SECRET_KEY;
 
 const registerUser = async (req, res, next) => {
     try {
-
-        console.log("----------------------------")
-        console.log("Registering user with data:", req.body);
-        console.log("----------------------------")
-
         const { error } = validateUserRegistration(req.body);
         if (error) {
             const errors = error.details.map(detail => ({
@@ -83,11 +78,13 @@ const registerUser = async (req, res, next) => {
 
         logger.info(`User registered successfully: ${user._id}`);
 
+        console.log('User registered successfully:', user.id.toString());
+
         res.status(201).json({
             status: 'success',
             message: 'User registered successfully. Please check your email for a verification code.',
             user: {
-                id: user._id,
+                id: user.id.toString(),
                 status: user.status
             }
         });
@@ -105,6 +102,8 @@ const registerUser = async (req, res, next) => {
             return next(new ApiError(409, 'Email is already registered'));
         }
 
+        console.log('Error occurred during registration:', error.message);
+
         return next(new ApiError(500, 'Failed to register user', {
             message: error.message
         }));
@@ -118,7 +117,14 @@ const verifyEmail = async (req, res, next) => {
             throw new ApiError(400, 'User ID and verification code are required');
         }
 
-        await otpService.verifyOTPAndActivateUser(userId, otpCode);
+        const isVerified = await otpService.verifyOTPAndActivateUser(userId, otpCode);
+
+        if (!isVerified) {
+            return res.status(400).json({
+                status: 'fail',
+                message: 'Invalid or expired verification code'
+            });
+        }
 
         res.status(200).json({
             status: 'success',

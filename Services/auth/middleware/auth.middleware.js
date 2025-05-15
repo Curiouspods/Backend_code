@@ -30,7 +30,13 @@ const authenticateToken = async (req, res, next) => {
 
         if (user.status !== 'active') {
             logger.warn(`Token authentication failed: Account not active - ID ${decoded.id}`);
-            throw new ApiError(403, 'Account is not active');
+            // Send response with details required to verify the email
+            return res.status(403).json({
+                message: 'Account is not active. Please verify your email to activate your account.',
+                email: user.email,
+                userId: user._id,
+                verificationRequired: true
+            });
         }
 
         // Optional: Check if token is blacklisted
