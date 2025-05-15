@@ -176,8 +176,6 @@ const updateUserProfile = async (userId, updateData) => {
     }
 };
 
-<<<<<<< HEAD
-=======
 const changePassword = async (userId, currentPassword, newPassword) => {
     try {
         // Get full user object with password
@@ -290,15 +288,10 @@ const registerOAuthUser = async (userData) => {
         throw new ApiError(500, error.message || 'OAuth registration failed');
     }
 };
->>>>>>> a4d93229a3373ea1406c52c7dd1c9b082756b235
 module.exports = {
     registerUser,
     getUserProfile,
     updateUserProfile,
-<<<<<<< HEAD
-    isUsernameTaken
-=======
     changePassword,
     registerOAuthUser
->>>>>>> a4d93229a3373ea1406c52c7dd1c9b082756b235
 };

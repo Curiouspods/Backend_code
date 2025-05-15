@@ -84,11 +84,6 @@ const activateUser = async (userId) => {
         email_verified: true
     });
 };
-<<<<<<< HEAD
-const findUserByUsername = async (username) => {
-    return await User.findOne({ username: username });
-};
-=======
 
 const findUserByTwitterId = async (twitterId) => {
     try {
@@ -108,7 +103,6 @@ const findUserByLinkedInId = async (linkedinId) => {
     }
 };
 
->>>>>>> a4d93229a3373ea1406c52c7dd1c9b082756b235
 module.exports = {
     createUser,
     findUserByEmailHash,
@@ -124,11 +118,6 @@ module.exports = {
     findUserWithOTP,
     removeUserOTP,
     activateUser,
-<<<<<<< HEAD
-    findUserByUsername,
-    activateUser
-=======
     findUserByTwitterId,
     findUserByLinkedInId
->>>>>>> a4d93229a3373ea1406c52c7dd1c9b082756b235
 };

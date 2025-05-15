@@ -9,6 +9,11 @@ const RECAPTCHA_SECRET_KEY = process.env.SECRET_KEY;
 
 const registerUser = async (req, res, next) => {
     try {
+
+        console.log("----------------------------")
+        console.log("Registering user with data:", req.body);
+        console.log("----------------------------")
+
         const { error } = validateUserRegistration(req.body);
         if (error) {
             const errors = error.details.map(detail => ({
@@ -26,6 +31,10 @@ const registerUser = async (req, res, next) => {
         }
 
         // Verify reCAPTCHA token
+        logger.debug('Verifying reCAPTCHA', {
+            captcha,
+            secretKey: RECAPTCHA_SECRET_KEY ? RECAPTCHA_SECRET_KEY.substring(0, 4) + '...' : undefined
+        });
         const captchaResponse = await axios.post(
             'https://www.google.com/recaptcha/api/siteverify',
             null,
@@ -37,10 +46,15 @@ const registerUser = async (req, res, next) => {
             }
         );
 
+        logger.debug('Full reCAPTCHA API response', captchaResponse.data);
+
+        console.log('CAPTCHA verification response:', captchaResponse.data);
+
         if (!captchaResponse.data.success) {
             logger.warn('CAPTCHA verification failed', {
                 score: captchaResponse.data.score,
-                errorCodes: captchaResponse.data['error-codes']
+                errorCodes: captchaResponse.data['error-codes'],
+                fullResponse: captchaResponse.data
             });
             throw new ApiError(400, 'CAPTCHA verification failed');
         }
