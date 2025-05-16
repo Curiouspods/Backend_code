@@ -1,9 +1,7 @@
-const crypto = require('crypto');
-
-const ALGORITHM = 'aes-256-cbc';
-const IV_LENGTH = 16;
+const crypto = require('crypto'); 
+const ALGORITHM = 'aes-256-cbc'; 
+const IV_LENGTH = 16; 
 const SECRET_KEY = Buffer.from(process.env.ENCRYPTION_KEY, 'hex');
-
 // Encrypt data
 const encrypt = (text) => {
   const iv = crypto.randomBytes(IV_LENGTH);
