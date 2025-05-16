@@ -1,19 +1,46 @@
 const UserForm = require('../models/userForm');
 const Registration = require('../models/user');
 const { encryptData, decryptData } = require('../config/encryptionConfig'); // Import encryption functions
+const { sendEmail } = require('../services/emailService');
+const dotenv = require('dotenv');
 
+dotenv.config();
+
+
+// 1. Map URL path to form type
 const formTypeMapping = {
     "enterprise/active": "ENT_ACT",
     "enterprise/visitor": "VIS_ENT",
     "contactus/active": "ACT_CON",
     "contactus/visitor": "VIS_CON",
+    "contactus/emergingtech": "CON_ETECH",
+    "contactus/healthtech": "CON_HTECH",
+    "contactus/flexpick": "CON_FPICK",
+    "contactus/general": "CON_GENERAL",
     "consult": "CONSULT",
     "license": "LICENSE",
     "subscribe": "SUBSCRIBE",
-    "paypercode/active":"PPC_ACTIVE",
-    "paypercode/inactive":"PPC_INACTIVE",
-    "consult":"consult",
+    "paypercode/active": "PPC_ACTIVE",
+    "paypercode/inactive": "PPC_INACTIVE"
 };
+
+// 2. Map formType to destination email
+const formTypeToEmail = {
+    "SUBSCRIBE": "Sales@vtex.ai",
+    "CONSULT": "Sales@vtex.ai",
+    "ENT_ACT": "Sales@vtex.ai",
+    "ENTRSUB": "Sales@vtex.ai",
+    "PPC_ACTIVE": "Sales@vtex.ai",
+    "LICENSE": "Sales@vtex.ai",
+    "ACT_CON": "Sales@vtex.ai",
+    "VIS_CON": "Sales@vtex.ai",
+    "VIS_ENT": "Sales@vtex.ai",
+    "CON_ETECH": "Support@vtex.ai",
+    "CON_HTECH": "Support@vtex.ai",
+    "CON_FPICK": "Support@vtex.ai",
+    "CON_GENERAL": "Support@vtex.ai"
+};
+
 
 exports.submitForm = async (req, res) => {
     try {
@@ -25,8 +52,15 @@ exports.submitForm = async (req, res) => {
             return res.status(400).json({ message: "Invalid form type or subType in URL." });
         }
 
-        let { email, phone_number, userId, ...formData } = req.body;
+        let { email, phone_number, userId,message, ...formData } = req.body;
         let userDetails = null;
+        
+
+        // Determine recipient email based on formType
+        const supportEmail = formTypeToEmail[mappedFormType];
+        if (!supportEmail) {
+            return res.status(400).json({ message: "No support team mapped for this form type." });
+        }
 
         // Check if user exists in Registration DB
         if (userId) {
@@ -51,6 +85,11 @@ exports.submitForm = async (req, res) => {
         const newForm = new UserForm({ formType: mappedFormType, ...formData });
         const savedForm = await newForm.save();
 
+        // **Send Email to Support Team**
+        await sendEmail(email, supportEmail, `New Form Submission: ${mappedFormType}`,
+            `Hello Support Team,\n\nA new form has been submitted.\n\nForm Type: ${mappedFormType}\nUser Email: ${decryptData(formData.email)}\nUser Message: ${message}\n\nBest Regards,\nYour System`
+        );
+        
         res.status(201).json({ message: `${mappedFormType} form submitted successfully`, data: savedForm });
     } catch (error) {
         res.status(400).json({ message: "Error submitting form", error: error.message });
