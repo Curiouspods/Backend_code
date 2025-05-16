@@ -1,11 +1,12 @@
+const axios = require('axios');
+const https = require('https');
+const dotenv = require('dotenv');
 const UserForm = require('../models/userForm');
 const Registration = require('../models/user');
-const { encryptData, decryptData } = require('../config/encryptionConfig'); // Import encryption functions
+const { encryptData, decryptData } = require('../config/encryptionConfig');
 const { sendEmail } = require('../services/emailService');
-const dotenv = require('dotenv');
 
 dotenv.config();
-
 
 // 1. Map URL path to form type
 const formTypeMapping = {
@@ -41,9 +42,33 @@ const formTypeToEmail = {
     "CON_GENERAL": "Support@vtex.ai"
 };
 
-
 exports.submitForm = async (req, res) => {
     try {
+        // 1. reCAPTCHA verification
+        const recaptchaToken = req.body['g-recaptcha-response'];
+        if (!recaptchaToken) {
+            return res.status(400).json({ message: "reCAPTCHA token is missing." });
+        }
+
+        const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+        const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaToken}`;
+
+        const { data: recaptchaRes } = await axios.post(
+            verificationUrl,
+            {},
+            {
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                httpsAgent: new https.Agent({ rejectUnauthorized: false }) // Optional, if you get SSL issues
+            }
+        );
+
+        if (!recaptchaRes.success) {
+            return res.status(400).json({ message: "Failed reCAPTCHA verification." });
+        }
+
+        // 2. Form logic
         const { formType, subType } = req.params;
         const urlPath = subType ? `${formType}/${subType}` : formType;
         const mappedFormType = formTypeMapping[urlPath];
@@ -52,15 +77,8 @@ exports.submitForm = async (req, res) => {
             return res.status(400).json({ message: "Invalid form type or subType in URL." });
         }
 
-        let { email, phone_number, userId,message, ...formData } = req.body;
+        let { email, phone_number, userId, ...formData } = req.body;
         let userDetails = null;
-        
-
-        // Determine recipient email based on formType
-        const supportEmail = formTypeToEmail[mappedFormType];
-        if (!supportEmail) {
-            return res.status(400).json({ message: "No support team mapped for this form type." });
-        }
 
         // Check if user exists in Registration DB
         if (userId) {
@@ -84,13 +102,13 @@ exports.submitForm = async (req, res) => {
 
         const newForm = new UserForm({ formType: mappedFormType, ...formData });
         const savedForm = await newForm.save();
-
-        // **Send Email to Support Team**
         await sendEmail(email, supportEmail, `New Form Submission: ${mappedFormType}`,
             `Hello Support Team,\n\nA new form has been submitted.\n\nForm Type: ${mappedFormType}\nUser Email: ${decryptData(formData.email)}\nUser Message: ${message}\n\nBest Regards,\nYour System`
         );
-        
-        res.status(201).json({ message: `${mappedFormType} form submitted successfully`, data: savedForm });
+        res.status(201).json({
+            message: `${mappedFormType} form submitted successfully`,
+            data: savedForm
+        });
     } catch (error) {
         res.status(400).json({ message: "Error submitting form", error: error.message });
     }
@@ -112,6 +130,7 @@ exports.getAllForms = async (req, res) => {
         res.status(500).json({ message: "Error retrieving forms", error: error.message });
     }
 };
+
 exports.cancelForm = async (req, res) => {
     try {
         const { id } = req.params;

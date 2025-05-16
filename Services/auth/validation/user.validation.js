@@ -56,7 +56,7 @@ const validateUserRegistration = (data) => {
             country: Joi.string().pattern(/^[A-Z]{2}$/).allow(null, '')
                 .messages({
                     'string.length': 'Country code must be exactly 2 characters',
-                    'string.pattern.base': 'Country code must be in ISO 3166-1 Alpha-2 format (e.g., US, CA)'
+                    'string.pattern.ba`se': 'Country code must be in ISO 3166-1 Alpha-2 format (e.g., US, CA)'
                 })
         }),
         preferences: Joi.object({
