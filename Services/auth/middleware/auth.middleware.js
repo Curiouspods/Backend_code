@@ -9,6 +9,9 @@ const SECRET_KEY = process.env.JWT_SECRET || 'yourSecretKey';
 
 const authenticateToken = async (req, res, next) => {
     try {
+
+        console.log("Authenticating user", req);
+
         // Get authorization header
         const authHeader = req.headers.authorization;
         const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN format

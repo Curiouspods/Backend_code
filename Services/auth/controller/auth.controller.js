@@ -151,41 +151,39 @@ const handleGoogleCallback = (req, res, next) => {
  * LinkedIn OAuth Initiation
  */
 const handleLinkedInAuth = (req, res, next) => {
+    console.log('LinkedIn authentication initiated');  
     logger.info('LinkedIn authentication initiated');
     passport.authenticate('linkedin', {
-        session: false
+        scope: ['w_member_social', 'openid', 'profile', 'email'], 
     })(req, res, next);
 };
 
 /**
  * LinkedIn OAuth Callback (Passport)
  */
-const handleLinkedInCallback = (req, res, next) => {
-    passport.authenticate('linkedin', {
-        failureRedirect: '/login',
-        session: false
-    }, (err, user) => {
-        if (err) {
-            logger.error('LinkedIn auth callback error', { error: err.message });
-            return next(new ApiError(500, 'Authentication failed'));
+const handleLinkedInCallback = async (req, res, next) => {
+    try {
+        const { code } = req.query; // Assuming the authorization code is passed as a query parameter
+
+        if (!code) {
+            throw new ApiError(400, 'LinkedIn authorization code is required');
         }
 
-        if (!user) {
-            logger.warn('LinkedIn auth failed - no user returned');
-            return res.redirect('/login?error=auth_failed');
-        }
+        // Use the authService to handle LinkedIn authentication
+        const result = await authService.handleLinkedInAuth(code);
 
-        logger.info(`LinkedIn auth successful for user: ${user.user._id}`);
-        res.json({
-            status: 'success',
-            message: "LinkedIn Login Successful",
-            data: {
-                id: user.user._id,
-                status: user.user.status
-            },
-            token: user.token
+        // Redirect to the client page with the redirect URL
+        res.redirect(result.redirectUrl);
+    } catch (error) {
+        if (error instanceof ApiError) return next(error);
+
+        logger.error('LinkedIn OAuth callback failed', {
+            error: error.message,
+            stack: error.stack
         });
-    })(req, res, next);
+
+        next(new ApiError(500, 'LinkedIn authentication failed'));
+    }
 };
 
 /**

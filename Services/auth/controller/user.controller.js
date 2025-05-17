@@ -78,8 +78,6 @@ const registerUser = async (req, res, next) => {
 
         logger.info(`User registered successfully: ${user._id}`);
 
-        console.log('User registered successfully:', user.id.toString());
-
         res.status(201).json({
             status: 'success',
             message: 'User registered successfully. Please check your email for a verification code.',

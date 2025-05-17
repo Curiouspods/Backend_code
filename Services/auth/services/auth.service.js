@@ -39,6 +39,10 @@ const loginUser = async (email, password, ipAddress = null, deviceInfo = null) =
 
         if (!user) throw new ApiError(401, 'Invalid credentials');
         if (user.provider !== 'local' && !user.password) throw new ApiError(400, `This account uses ${user.provider} authentication`);
+        
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) throw new ApiError(401, 'Invalid credentials');
+        
         if (user.status !== 'active') {
             return {
                 verificationRequired: true,
@@ -47,9 +51,6 @@ const loginUser = async (email, password, ipAddress = null, deviceInfo = null) =
                 userId: user._id
             };
         }
-
-        const isPasswordValid = await bcrypt.compare(password, user.password);
-        if (!isPasswordValid) throw new ApiError(401, 'Invalid credentials');
 
         const token = generateToken(user);
         await userRepository.updateUserLastLogin(user._id, ipAddress, deviceInfo);
@@ -131,30 +132,29 @@ const handleOAuthLogin = async (profile, provider) => {
                 }
 
                 const token = generateToken(existingUser);
-                return {
-                    user: {
-                        id: existingUser._id,
-                        status: existingUser.status,
-                        email_verified: existingUser.email_verified
-                    },
-                    token,
-                    isNewUser: false
-                };
+
+                if (token)
+                    return {
+                        redirectUrl: `${process.env.FRONTEND_URL}/auth/success?token=${token}&userId=${existingUser._id}&isNewUser=false`
+                    };
+                else
+                    return {
+                        redirectUrl: `${process.env.FRONTEND_URL}/login?error=auth_failed`,
+                    };
             }
         }
 
         const newUser = await userService.registerOAuthUser(userData);
         const token = generateToken(newUser);
 
-        return {
-            user: {
-                id: newUser._id,
-                status: newUser.status,
-                email_verified: newUser.email_verified
-            },
-            token,
-            isNewUser: true
-        };
+        if (token)
+            return {
+                redirectUrl: `${process.env.FRONTEND_URL}/auth/success?token=${token}&userId=${existingUser._id}&isNewUser=false`
+            };
+        else
+            return {
+                redirectUrl: `${process.env.FRONTEND_URL}/login?error=auth_failed`,
+            };
     } catch (error) {
         logger.error(`${provider} OAuth login failed`, { error: error.message, stack: error.stack });
         throw new ApiError(500, `${provider} login failed: ${error.message}`);
@@ -214,31 +214,31 @@ const handleLinkedInAuth = async (code) => {
             }
         });
 
-        const { access_token } = tokenResponse.data;
+        // console.log('Token Response:', tokenResponse.data); // Debugging token response
 
-        const profileResponse = await axios.get('https://api.linkedin.com/v2/me', {
+        const { access_token } = tokenResponse.data.access_token;
+        const { id_token } = tokenResponse.data.id_token;
+
+        const profileResponse = await axios.get('https://api.linkedin.com/v2/userinfo', {
             headers: {
-                Authorization: `Bearer ${access_token}`
-            },
-            params: {
-                projection: '(id,localizedFirstName,localizedLastName)'
+                Authorization: `Bearer ${tokenResponse.data.access_token}`
             }
         });
 
-        const emailResponse = await axios.get('https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))', {
-            headers: {
-                Authorization: `Bearer ${access_token}`
-            }
-        });
+        // console.log('Profile Response:', profileResponse); // Debugging profile response
 
-        const profile = {
-            ...profileResponse.data,
-            email: emailResponse.data.elements?.[0]?.['handle~']?.emailAddress
-        };
+        profile = profileResponse.data;
 
         return await handleOAuthLogin(profile, 'linkedin');
     } catch (error) {
-        logger.error('LinkedIn OAuth process failed', { error: error.message, stack: error.stack });
+        console.error('Error during LinkedIn OAuth process', {
+            error: error.message,
+            stack: error.stack
+        });
+        console.error('LinkedIn OAuth process failed', {
+            error: error.response?.data || error.message,
+            stack: error.stack
+        });
         throw new ApiError(500, `LinkedIn authentication failed: ${error.message}`);
     }
 };
