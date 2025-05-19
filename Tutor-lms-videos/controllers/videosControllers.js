@@ -268,40 +268,48 @@ const addSampleData = async (req, res) => {
 // Fetch all Flexpick courses
 async function fetchAllFlexpickCourses(req, res) {
   try {
-
     console.log("Fetching all Flexpick courses...");
 
     const url = `${WP_SITE_URL}/wp-json/tutor/v1/courses`;
-    const response = await axios.get(url, {
-      auth: {
-        username: process.env.TUTOR_API_KEY,
-        password: process.env.TUTOR_SECRET_KEY,
+    let allCourses = [];
+    let page = 1;
+    let hasMore = true;
+
+    while (hasMore) {
+      console.log(`Fetching page: ${page}`);
+      const response = await axios.get(url, {
+        params: { paged: page, per_page: 20 },
+        auth: {
+          username: process.env.TUTOR_API_KEY,
+          password: process.env.TUTOR_SECRET_KEY,
+        },
+      });
+
+      if (response.status === 200 && response.data?.data?.posts?.length > 0) {
+        const courses = response.data.data.posts;
+        allCourses = allCourses.concat(courses);
+        page++;
+      } else {
+        hasMore = false;
       }
-    });
-
-    if (response.status === 200) {
-
-      console.log(response.data.data.posts.length);
-
-      // Restructure response.data.data.posts into the required format
-      const videos = (response.data.data.posts || []).map((course) => ({
-        id: course.course_tag[0]?.slug || course.ID || "",
-        title: course.post_title || "",
-        description: course.post_content || "",
-        tags: typeof course.course_tag[0]?.name === "string"
-          ? course.course_tag[0]?.name.split(",").map(tag => tag.trim())
-          : [],
-        thumbnail: course.thumbnail_url || "",
-        course_category: course.course_category[0]?.name || "",
-      }));
-
-      console.log("Number of videos fetched:", videos.length);
-
-      res.status(200).json({ videos });
-    } else {
-      res.status(response.status).json({ error: "Failed to fetch courses" });
     }
+
+    const videos = allCourses.map((course) => ({
+      id: course.course_tag[0]?.slug || course.ID || "",
+      title: course.post_title || "",
+      description: course.post_content || "",
+      tags: typeof course.course_tag[0]?.name === "string"
+        ? course.course_tag[0]?.name.split(",").map(tag => tag.trim())
+        : [],
+      thumbnail: course.thumbnail_url || "",
+      course_category: course.course_category[0]?.name || "",
+    }));
+
+    console.log("Total number of videos fetched:", videos.length);
+
+    res.status(200).json({ videos });
   } catch (error) {
+    console.error("Error in fetchAllFlexpickCourses:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
