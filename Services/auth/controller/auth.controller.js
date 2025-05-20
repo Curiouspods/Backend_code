@@ -4,6 +4,11 @@ const logger = require('../config/logger');
 const { ApiError } = require('../middleware/error.middleware');
 const passport = require('passport');
 const axios = require('axios');
+const authRepository = require('../repository/auth.repository');
+const crypto = require('crypto');
+const bcrypt = require('bcrypt');
+const config = require('../config/config');
+const emailService = require('../services/email.service');
 
 const loginUser = async (req, res, next) => {
     try {
@@ -104,7 +109,126 @@ const logoutUser = async (req, res, next) => {
         next(new ApiError(500, 'Logout failed'));
     }
 };
+const forgotPassword = async (req, res, next) => {
+    try {
+        const { email } = req.body;
 
+        if (!email) {
+            throw new ApiError(400, 'Email is required');
+        }
+
+        // Find user by email
+        const user = await authRepository.findUserByEmail(email);
+
+        // If no user found, still return to avoid leaking user existence
+        if (!user) {
+            logger.info(`Password reset requested for non-existent email: ${email.substring(0, 3)}...`);
+            return res.status(200).json({ message: 'If the email exists, a reset link will be sent.' });
+        }
+
+        // Generate a reset token that expires in 1 hour
+        const resetToken = crypto.randomBytes(32).toString('hex');
+        const hashedToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+
+        // Save the hashed token and expiry to the user document
+        const passwordResetExpires = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
+
+        await authRepository.saveResetToken(user.id, hashedToken, passwordResetExpires);
+
+        // Create reset URL
+        const resetURL = `${config.frontendURL}/auth/reset-password?token=${resetToken}`;
+
+        // Log the details before sending the email
+        logger.info('Preparing to send password reset email', {
+            email: email,
+            name: user.firstName || 'User',
+            resetURL
+        });
+
+        // Send email with the reset link
+        await emailService.sendPasswordResetEmail(
+            email,
+            user.firstName || 'User',
+            resetURL
+        );
+
+        logger.info(`Password reset email sent to: ${email.substring(0, 3)}...`);
+        res.status(200).json({ message: 'Password reset email sent successfully.' });
+    } catch (error) {
+        if (error instanceof ApiError) return next(error);
+
+        logger.error('Error in forgotPassword', {
+            error: error.message,
+            stack: error.stack
+        });
+        next(new ApiError(500, 'An error occurred while processing the request'));
+    }
+};
+
+/**
+ * Reset password using a valid token
+ * @param {string} token - The reset token from the email
+ * @param {string} newPassword - The new password
+ * @returns {Promise<void>}
+ */
+const resetPassword = async (req, res, next) => {
+    try {
+        const { token, newPassword } = req.body;
+
+        if (!token || !newPassword) {
+            throw new ApiError(400, 'Token and new password are required');
+        }
+
+        // Hash the token from the request to compare with the stored hash
+        const hashedToken = crypto.createHash('sha256').update(token).digest('hex');
+
+        // Find user with valid reset token and non-expired reset date
+        const user = await authRepository.findUserByResetToken(hashedToken);
+
+        if (!user) {
+            throw new ApiError(400, 'Invalid or expired reset token');
+        }
+
+        // Check if token is expired
+        const now = new Date();
+        if (user.passwordResetExpires < now) {
+            throw new ApiError(400, 'Reset token has expired');
+        }
+
+        // Hash new password
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+        // Update user's password and clear reset token
+        await authRepository.updatePasswordAndClearResetToken(user.id, hashedPassword);
+
+        logger.info(`Password successfully reset for user: ${user.id}`);
+
+        // Optionally: Send confirmation email
+        try {
+            await emailService.sendPasswordChangeConfirmationEmail(
+                user.email,
+                user.firstName || 'User'
+            );
+        } catch (error) {
+            logger.error('Failed to send password change confirmation email', {
+                error: error.message,
+                userId: user.id
+            });
+            // Don't throw here - password was reset successfully
+        }
+
+        res.status(200).json({ message: 'Password reset successfully' });
+    } catch (error) {
+        if (error instanceof ApiError) return next(error);
+
+        logger.error('Error in resetPassword', {
+            error: error.message,
+            stack: error.stack
+        });
+        next(new ApiError(500, 'An error occurred while processing the request'));
+    }
+};
 /**
  * Google OAuth Initiation
  */
@@ -262,5 +386,7 @@ module.exports = {
     handleLinkedInAuth,
     handleLinkedInCallback,
     twitterCallback,
-    linkedinCallback
+    linkedinCallback,
+    forgotPassword,
+    resetPassword
 };

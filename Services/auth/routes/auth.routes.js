@@ -42,4 +42,8 @@ router.get('/google/callback',
 router.get('/linkedin', authController.handleLinkedInAuth);
 router.get('/linkedin/callback', authController.handleLinkedInCallback);
 
+router.post('/forgot-password', authController.forgotPassword);
+router.post('/reset-password', authController.resetPassword);
+
+
 module.exports = router;
