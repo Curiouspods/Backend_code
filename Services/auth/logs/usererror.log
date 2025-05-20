@@ -1,0 +1,164 @@
+2025-05-20T13:32:34.813Z [error]: Error sending password change confirmation email
+Stack: Error: No recipients defined
+    at SMTPConnection._formatError (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:809:19)
+    at SMTPConnection._setEnvelope (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:1047:34)
+    at SMTPConnection.send (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:631:14)
+    at sendMessage (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-transport/index.js:228:28)
+    at /home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-transport/index.js:286:25
+    at SMTPConnection._actionAUTHComplete (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:1602:9)
+    at SMTPConnection.<anonymous> (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:556:26)
+    at SMTPConnection._processResponse (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:993:20)
+    at SMTPConnection._onData (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:774:14)
+    at SMTPConnection._onSocketData (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:195:44)
+2025-05-20T13:32:34.815Z [error]: Failed to send password change confirmation email
+Stack: N/A
+2025-05-20T13:42:28.936Z [error]: Not Found - /api/api/auth/reset-password
+Stack: Error: Not Found - /api/api/auth/reset-password
+    at notFound (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/middleware/error.middleware.js:48:19)
+    at Layer.handle [as handle_request] (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:328:13)
+    at /home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:280:10)
+    at strategy.pass (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:355:9)
+    at SessionStrategy.authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/strategies/session.js:126:10)
+    at attempt (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:379:7)
+2025-05-20T13:42:34.419Z [error]: Not Found - /api/api/auth/reset-password
+Stack: Error: Not Found - /api/api/auth/reset-password
+    at notFound (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/middleware/error.middleware.js:48:19)
+    at Layer.handle [as handle_request] (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:328:13)
+    at /home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:280:10)
+    at strategy.pass (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:355:9)
+    at SessionStrategy.authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/strategies/session.js:126:10)
+    at attempt (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:379:7)
+2025-05-20T13:44:53.584Z [error]: Not Found - /api/api/auth/reset-password
+Stack: Error: Not Found - /api/api/auth/reset-password
+    at notFound (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/middleware/error.middleware.js:48:19)
+    at Layer.handle [as handle_request] (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:328:13)
+    at /home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:280:10)
+    at strategy.pass (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:355:9)
+    at SessionStrategy.authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/strategies/session.js:126:10)
+    at attempt (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:379:7)
+2025-05-20T13:46:03.623Z [error]: Not Found - /api/api/auth/reset-password
+Stack: Error: Not Found - /api/api/auth/reset-password
+    at notFound (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/middleware/error.middleware.js:48:19)
+    at Layer.handle [as handle_request] (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:328:13)
+    at /home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:280:10)
+    at strategy.pass (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:355:9)
+    at SessionStrategy.authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/strategies/session.js:126:10)
+    at attempt (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:379:7)
+2025-05-20T13:47:23.323Z [error]: Not Found - /api/api/auth/reset-password
+Stack: Error: Not Found - /api/api/auth/reset-password
+    at notFound (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/middleware/error.middleware.js:48:19)
+    at Layer.handle [as handle_request] (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:328:13)
+    at /home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:280:10)
+    at strategy.pass (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:355:9)
+    at SessionStrategy.authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/strategies/session.js:126:10)
+    at attempt (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:379:7)
+2025-05-20T13:47:51.992Z [error]: Not Found - /api/api/auth/reset-password
+Stack: Error: Not Found - /api/api/auth/reset-password
+    at notFound (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/middleware/error.middleware.js:48:19)
+    at Layer.handle [as handle_request] (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:328:13)
+    at /home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:280:10)
+    at strategy.pass (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:355:9)
+    at SessionStrategy.authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/strategies/session.js:126:10)
+    at attempt (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:379:7)
+2025-05-20T13:49:41.098Z [error]: Not Found - /api/api/auth/reset-password
+Stack: Error: Not Found - /api/api/auth/reset-password
+    at notFound (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/middleware/error.middleware.js:48:19)
+    at Layer.handle [as handle_request] (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:328:13)
+    at /home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:280:10)
+    at strategy.pass (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:355:9)
+    at SessionStrategy.authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/strategies/session.js:126:10)
+    at attempt (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:379:7)
+2025-05-20T13:50:08.243Z [error]: Error sending password change confirmation email
+Stack: Error: No recipients defined
+    at SMTPConnection._formatError (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:809:19)
+    at SMTPConnection._setEnvelope (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:1047:34)
+    at SMTPConnection.send (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:631:14)
+    at sendMessage (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-transport/index.js:228:28)
+    at /home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-transport/index.js:286:25
+    at SMTPConnection._actionAUTHComplete (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:1602:9)
+    at SMTPConnection.<anonymous> (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:556:26)
+    at SMTPConnection._processResponse (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:993:20)
+    at SMTPConnection._onData (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:774:14)
+    at SMTPConnection._onSocketData (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:195:44)
+2025-05-20T13:50:08.244Z [error]: Failed to send password change confirmation email
+Stack: N/A
+2025-05-20T13:55:21.046Z [error]: Not Found - /api/api/auth/reset-password
+Stack: Error: Not Found - /api/api/auth/reset-password
+    at notFound (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/middleware/error.middleware.js:48:19)
+    at Layer.handle [as handle_request] (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:328:13)
+    at /home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/express/lib/router/index.js:280:10)
+    at strategy.pass (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:355:9)
+    at SessionStrategy.authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/strategies/session.js:126:10)
+    at attempt (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:378:16)
+    at authenticate (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/passport/lib/middleware/authenticate.js:379:7)
+2025-05-20T13:56:14.503Z [error]: Error sending password change confirmation email
+Stack: Error: No recipients defined
+    at SMTPConnection._formatError (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:809:19)
+    at SMTPConnection._setEnvelope (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:1047:34)
+    at SMTPConnection.send (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:631:14)
+    at sendMessage (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-transport/index.js:228:28)
+    at /home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-transport/index.js:286:25
+    at SMTPConnection._actionAUTHComplete (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:1602:9)
+    at SMTPConnection.<anonymous> (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:556:26)
+    at SMTPConnection._processResponse (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:993:20)
+    at SMTPConnection._onData (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:774:14)
+    at SMTPConnection._onSocketData (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:195:44)
+2025-05-20T13:56:14.504Z [error]: Failed to send password change confirmation email
+Stack: N/A
+2025-05-20T14:06:15.385Z [error]: Invalid or expired reset token
+Stack: Error: Invalid or expired reset token
+    at resetPassword (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/controller/auth.controller.js:191:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-05-20T14:06:39.058Z [error]: Invalid or expired reset token
+Stack: Error: Invalid or expired reset token
+    at resetPassword (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/controller/auth.controller.js:191:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-05-20T14:07:07.407Z [error]: Invalid or expired reset token
+Stack: Error: Invalid or expired reset token
+    at resetPassword (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/controller/auth.controller.js:191:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-05-20T14:08:10.960Z [error]: Error sending password change confirmation email
+Stack: Error: No recipients defined
+    at SMTPConnection._formatError (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:809:19)
+    at SMTPConnection._setEnvelope (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:1047:34)
+    at SMTPConnection.send (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:631:14)
+    at sendMessage (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-transport/index.js:228:28)
+    at /home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-transport/index.js:286:25
+    at SMTPConnection._actionAUTHComplete (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:1602:9)
+    at SMTPConnection.<anonymous> (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:556:26)
+    at SMTPConnection._processResponse (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:993:20)
+    at SMTPConnection._onData (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:774:14)
+    at SMTPConnection._onSocketData (/home/goutham-kurapati/Desktop/VTex/Backend_code/Services/auth/node_modules/nodemailer/lib/smtp-connection/index.js:195:44)
+2025-05-20T14:08:10.961Z [error]: Failed to send password change confirmation email
+Stack: N/A
