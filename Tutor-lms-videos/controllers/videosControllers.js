@@ -314,6 +314,63 @@ async function fetchAllFlexpickCourses(req, res) {
   }
 }
 
+// Updated fetchCourseById to handle pagination like fetchAllFlexpickCourses
+async function fetchCourseById(req, res) {
+  try {
+    const courseId = req.params.id;
+
+    const url = `${WP_SITE_URL}/wp-json/tutor/v1/courses`;
+    let allCourses = [];
+    let page = 1;
+    let hasMore = true;
+
+    while (hasMore) {
+      const response = await axios.get(url, {
+        params: { paged: page, per_page: 20 },
+        auth: {
+          username: process.env.TUTOR_API_KEY,
+          password: process.env.TUTOR_SECRET_KEY,
+        },
+      });
+
+      if (response.status === 200 && response.data?.data?.posts?.length > 0) {
+        const courses = response.data.data.posts;
+        allCourses = allCourses.concat(courses);
+        page++;
+      } else {
+        hasMore = false;
+      }
+    }
+
+    const course = allCourses.find(
+      (course) => course.course_tag[0]?.slug === courseId || course.ID === courseId
+    );
+
+    if (!course) {
+      return res.status(404).json({ error: "Course not found." });
+    }
+
+    const courseDetails = {
+      id: course.course_tag[0]?.slug || course.ID || "",
+      title: course.post_title || "",
+      description: course.post_content || "",
+      key_learning_objectives: course.key_learning_objectives || "",
+      tags: typeof course.course_tag[0]?.name === "string"
+        ? course.course_tag[0]?.name.split(",").map(tag => tag.trim())
+        : [],
+      thumbnail: course.thumbnail_url || "",
+      course_category: course.course_category[0]?.name || "",
+      course_benefits: course.additional_info.course_benefits || "",
+      course_requirements: course.additional_info.course_requirements || "",
+    };
+
+    res.status(200).json(courseDetails);
+  } catch (error) {
+    console.error("Error fetching course by ID:", error);
+    res.status(500).json({ error: "Failed to fetch course details." });
+  }
+}
+
 // Export all functions
 module.exports = {
   fetchAllCourses,
@@ -322,4 +379,5 @@ module.exports = {
   getTrendingCourses,
   addSampleData,
   fetchAllFlexpickCourses,
+  fetchCourseById,
 };

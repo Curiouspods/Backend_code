@@ -9,4 +9,7 @@ router.get('/trending',videoControllersFromDB.getTrendingCourses)
 
 router.get('/fetch-all-flexpick-courses',videosControllers.fetchAllFlexpickCourses)
 
+// Updated route to fetch details of a specific course by ID
+router.get('/fetch-course-details/:id', videosControllers.fetchCourseById);
+
 module.exports = router;
