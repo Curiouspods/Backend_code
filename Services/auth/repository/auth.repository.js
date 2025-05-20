@@ -1,8 +1,9 @@
 // auth.repository.js
-const User = require('../models/user.model');
-const BlacklistedToken = require('../models/blacklisted-token.model');
+const User = require('../model/user.model');
+const BlacklistedToken = require('../model/blackListToken.model');
 const mongoose = require('mongoose');
 const logger = require('../config/logger');
+const crypto = require('crypto');
 
 /**
  * Find a user by email
@@ -11,9 +12,14 @@ const logger = require('../config/logger');
  */
 const findUserByEmail = async (email) => {
     try {
-        const user = await User.findOne({ email: email.toLowerCase() });
+        if (typeof email !== 'string') {
+            throw new TypeError('Email must be a string');
+        }
+        const hashedEmail = crypto.createHash('sha256').update(email.toLowerCase()).digest('hex');
+        const user = await User.findOne({ $or: [{ email: email.toLowerCase() }, { emailHash: hashedEmail }] }, 'email emailHash');
         return user;
     } catch (error) {
+        console.log("Couldn't fine  user by email:", error);
         logger.error('Error finding user by email', {
             error: error.message,
             stack: error.stack
