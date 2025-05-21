@@ -247,7 +247,7 @@ const handleGoogleCallback = (req, res, next) => {
     passport.authenticate('google', {
         failureRedirect: '/login',
         session: false
-    }, (err, user) => {
+    }, async (err, user) => {
         if (err) {
             logger.error('Google auth callback error', { error: err.message });
             return next(new ApiError(500, 'Authentication failed'));
@@ -257,6 +257,13 @@ const handleGoogleCallback = (req, res, next) => {
             logger.warn('Google auth failed - no user returned');
             return res.redirect('/auth/login?error=auth_failed');
         }
+
+        // Ensure required fields are populated
+        if (!user.address) {
+            user.address = {};
+        }
+        user.address.country = user.address.country || 'US';
+        user.address.state = user.address.state || 'CA';
 
         logger.info(`Google auth successful for user: ${user.user._id}`);
         res.json({
