@@ -255,7 +255,7 @@ const handleGoogleCallback = (req, res, next) => {
 
         if (!user) {
             logger.warn('Google auth failed - no user returned');
-            return res.redirect('/login?error=auth_failed');
+            return res.redirect('/auth/login?error=auth_failed');
         }
 
         logger.info(`Google auth successful for user: ${user.user._id}`);
