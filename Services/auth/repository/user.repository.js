@@ -3,6 +3,13 @@ const User = require('../model/user.model');
 const TokenBlacklist = require('../model/blackListToken.model');
 
 const createUser = async (userData) => {
+    // Ensure default values for address fields
+    if (!userData.address) {
+        userData.address = {};
+    }
+    userData.address.country = userData.address.country || 'N/A';
+    userData.address.state = userData.address.state || 'N/A';
+
     return await User.create(userData);
 };
 
@@ -23,6 +30,12 @@ const findUserByIdWithPassword = async (userId) => {
 };
 
 const updateUser = async (userId, updateData) => {
+    // Ensure default values for address fields
+    if (updateData.address) {
+        updateData.address.country = updateData.address.country || 'Default Country';
+        updateData.address.state = updateData.address.state || 'Default State';
+    }
+
     return await User.findByIdAndUpdate(
         userId,
         { $set: updateData },
