@@ -57,8 +57,8 @@ const userSchema = new mongoose.Schema({
   phoneHash: { type: String, index: true },
 
   address: {
-    state: { type: String, required: true },
-    country: { type: String, required: true } // ISO 3166-1 Alpha-2
+    state: { type: String, required: false },
+    country: { type: String, required: false } // ISO 3166-1 Alpha-2
   },
 
   status: {
