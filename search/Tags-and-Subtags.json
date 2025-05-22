@@ -1,0 +1,802 @@
+{
+"Sheet1":[
+ {
+  "Title ": "Generative AI in Digital Architectures",
+  "Plan": "ETECH",
+  "Coure ID": "84",
+  "Tag": "Generative AI, Cloud, Architectures, AI, Digital Transformation",
+  "Subtag1": "GENAI",
+  "Subtag2": "BASIC AI",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_84"
+ },
+ {
+  "Title ": "Ethics and Regulations: A Blockchain Approach to Medical Article Compliance",
+  "Plan": "ETECH",
+  "Coure ID": "85",
+  "Tag": "Healthcare, Governance,Blockchain, Healthtech",
+  "Subtag1": "COMPLIANCE",
+  "Subtag2": "GOVERNANCE",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_85"
+ },
+ {
+  "Title ": "Assessing Impact: Causal Inference Techniques",
+  "Plan": "ETECH",
+  "Coure ID": "86",
+  "Tag": "Advanced, Analytics, Techniques,Causal, Inference",
+  "Subtag1": "ANALYTICS",
+  "Subtag2": "CLOUD",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_86"
+ },
+ {
+  "Title ": "Transforming Change Management with BERT and NLP",
+  "Plan": "ETECH",
+  "Coure ID": "87",
+  "Tag": "Generative AI, Strategic,Planning, Change, Management",
+  "Subtag1": "PROJECTMGT",
+  "Subtag2": "DIGITALTRANS",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_87"
+ },
+ {
+  "Title ": "Revolutionizing DevSecOps: AI and Generative AI in Action",
+  "Plan": "ETECH",
+  "Coure ID": "88",
+  "Tag": "DevSecOps, DevOps,Automation, Generative AI,Security, operations, SDLC",
+  "Subtag1": "PROJECTMGT",
+  "Subtag2": "DIGITALTRANS",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_88"
+ },
+ {
+  "Title ": "Blockchain and AI: Transforming Pharmacy Payments with Smart Contracts",
+  "Plan": "ETECH",
+  "Coure ID": "90",
+  "Tag": "Pharmacy, Payment, Transformation,Blockchain, Healthcare, Pay, Supply chain, Contract, Smart, ",
+  "Subtag1": "BLOCKCHAIN",
+  "Subtag2": "PHARMACY",
+  "Subtag3": "PAYMENT",
+  "Column8": "ETECH_90"
+ },
+ {
+  "Title ": "Cloud Computing Essentials: Enhancing Predictive Analytics with SHAP",
+  "Plan": "ETECH",
+  "Coure ID": "92",
+  "Tag": "Predictive, Analytics,Cloud, SHAP, AIML, ML, Data",
+  "Subtag1": "BASIC",
+  "Subtag2": "CLOUD",
+  "Subtag3": "ANALYTICS",
+  "Column8": "ETECH_92"
+ },
+ {
+  "Title ": "Navigating Risks: How K-Nearest Neighbors Enhance Predictive Analytics",
+  "Plan": "ETECH",
+  "Coure ID": "94",
+  "Tag": "Risk,Assessment, ML, Machine Learning, Algorithms, K-nearest, Predictive, Analytics",
+  "Subtag1": "BASIC AI",
+  "Subtag2": "ANALYTICS",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_94"
+ },
+ {
+  "Title ": "Real-Time Churn Prediction with Machine Learning",
+  "Plan": "ETECH",
+  "Coure ID": "96",
+  "Tag": "Churn,Analysis,  ML, Algorithms,Customer, Retention, Strategies, Experience, Prediction, Analytics",
+  "Subtag1": "CUSTOMER",
+  "Subtag2": "SUPPORT",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_96"
+ },
+ {
+  "Title ": "Zero Trust in Action: Securing Data with Robust Access Control",
+  "Plan": "ETECH",
+  "Coure ID": "98",
+  "Tag": "Security , Zero, Trust, Data , Breach, Access, Controls, Compliance",
+  "Subtag1": "SECURITY",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_98"
+ },
+ {
+  "Title ": "Proactive Defect Management Using Generative AI",
+  "Plan": "ETECH",
+  "Coure ID": "99",
+  "Tag": "AI, Quality, Assurance,Predictive, Maintenance, Defect, Support, Generative AI, QM, QE",
+  "Subtag1": "QUALITY",
+  "Subtag2": "GENAI",
+  "Subtag3": "MAINTENANCE",
+  "Column8": "ETECH_99"
+ },
+ {
+  "Title ": "Performance Insights: Access Time Analysis of SRAM and DRAM",
+  "Plan": "ETECH",
+  "Coure ID": "100",
+  "Tag": "System, optimization,performance,Cache, Memory, optimization, Analysis, DRAM, SRAM, Chip, SoC ",
+  "Subtag1": "MAINTENANCE",
+  "Subtag2": "OPTIMIZATION",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_100"
+ },
+ {
+  "Title ": "Strategic SharePoint Governance: Optimizing Content Management and Collaboration",
+  "Plan": "ETECH",
+  "Coure ID": "101",
+  "Tag": "Content, Management, SharePoint, Collaboration, Share, Governance ",
+  "Subtag1": "GOVERNANCE",
+  "Subtag2": "COMPLIANCE",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_101"
+ },
+ {
+  "Title ": "Predictive Modeling and Anomaly Detection with SRE and AIOps",
+  "Plan": "ETECH",
+  "Coure ID": "102",
+  "Tag": "SRE, Observability, AIOPs,Anomaly, Detection, Support",
+  "Subtag1": "MAINTENANCE",
+  "Subtag2": "SUPPORT",
+  "Subtag3": "ANALYTICS",
+  "Column8": "ETECH_102"
+ },
+ {
+  "Title ": "Generative AI for Tamper-Resistant Watermarks in Digital Rights Management",
+  "Plan": "ETECH",
+  "Coure ID": "103",
+  "Tag": "Watermarking,Digital Rights Management, DRM, Rights, License, Compliance, Security, Tamper, Generative AI",
+  "Subtag1": "SECURITY",
+  "Subtag2": "MAINTENANCE",
+  "Subtag3": "OPTIMIZATION",
+  "Column8": "ETECH_103"
+ },
+ {
+  "Title ": "Streamlining Customer Choices: A Subscription Box Recommendation System",
+  "Plan": "ETECH",
+  "Coure ID": "105",
+  "Tag": "Subscription, Models,Customer, Behavior, Experience, Engagement, Retention ,Personalization",
+  "Subtag1": "CUSTOMER",
+  "Subtag2": "SUPPORT",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_105"
+ },
+ {
+  "Title ": "Targeted Interventions: Harnessing AI for Personalized Customer Motivation\n",
+  "Plan": "ETECH",
+  "Coure ID": "107",
+  "Tag": "Customer, Retention,Engagement, Experience, Lifetime, Satisfaction, Personalization",
+  "Subtag1": "CUSTOMER",
+  "Subtag2": "SUPPORT",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_107"
+ },
+ {
+  "Title ": "Predicting User Drop-Offs: Insights from Journey Data Analysis",
+  "Plan": "ETECH",
+  "Coure ID": "108",
+  "Tag": "Churn, Prediction,User, Drop-Off,Customer, Prediction, Analytics",
+  "Subtag1": "CUSTOMER",
+  "Subtag2": "SUPPORT",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_108"
+ },
+ {
+  "Title ": "Risk Management in Digital Transformation: Strategies for Resource Optimization",
+  "Plan": "ETECH",
+  "Coure ID": "109",
+  "Tag": "Operational, Efficiency,Business, Strategy, Risk, Resource, Optimization",
+  "Subtag1": "PROJECTMGT",
+  "Subtag2": "MAINTENANCE",
+  "Subtag3": "OPTIMIZATION",
+  "Column8": "ETECH_109"
+ },
+ {
+  "Title ": "Harnessing BERT for Accurate Dosage Guidance in Customer Support",
+  "Plan": "ETECH",
+  "Coure ID": "110",
+  "Tag": "AI, Healthcare,Drug, Dosage, Guidance, BERT, Customer, Support, Engagement, Experience, Retention,Personalization",
+  "Subtag1": "CUSTOMER",
+  "Subtag2": "SUPPORT",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_110"
+ },
+ {
+  "Title ": "Navigating Emotions: Advanced Techniques in Sentiment Categorization",
+  "Plan": "ETECH",
+  "Coure ID": "111",
+  "Tag": "Text, Analytics,Emotion, Analysis,Sentiment ,Categorization, Personalization",
+  "Subtag1": "CUSTOMER",
+  "Subtag2": "SENTIMENT",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_111"
+ },
+ {
+  "Title ": "Automating Documentation: AI for Agile Project Delivery",
+  "Plan": "ETECH",
+  "Coure ID": "113",
+  "Tag": "Digital Transformation, Project Management,Automation, Agile, Documentation, Delivery, Project",
+  "Subtag1": "PROJECTMGT",
+  "Subtag2": "SUPPORT",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_113"
+ },
+ {
+  "Title ": "Exploring Generative AI: Models and Use Cases",
+  "Plan": "ETECH",
+  "Coure ID": "114",
+  "Tag": "Text-to-Image, AI,Artificial Intelligence, Use Cases, AI, Models, Generative AI",
+  "Subtag1": "GENAI",
+  "Subtag2": "BASIC",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_114"
+ },
+ {
+  "Title ": "Generative AI Models: From Theory to Application",
+  "Plan": "ETECH",
+  "Coure ID": "115",
+  "Tag": "AI, ML, Content Creation,Artificial Intelligence, Applications, Generative AI",
+  "Subtag1": "GENAI",
+  "Subtag2": "BASIC",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_115"
+ },
+ {
+  "Title ": "Comprehensive Threat Mitigation: NMAP Scans, DDoS Defense, and SQL Injection Safeguards",
+  "Plan": "ETECH",
+  "Coure ID": "116",
+  "Tag": "Security , XSS, IAM, Identity, Threat detection, Risk, Compliance, Governance",
+  "Subtag1": "SECURITY",
+  "Subtag2": "MAINTENANCE",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_116"
+ },
+ {
+  "Title ": "Multi-Dimensional Cybersecurity: XSS Safeguards, Traffic Analysis, and Robust IAM Practices",
+  "Plan": "ETECH",
+  "Coure ID": "117",
+  "Tag": "Security , NMAP, DDOS , SQL Injection, Identity, Threat detection, Risk, Compliance, Governance",
+  "Subtag1": "SECURITY",
+  "Subtag2": "MAINTENANCE",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_117"
+ },
+ {
+  "Title ": "Building Scalable Microservices for Enhanced Efficiency",
+  "Plan": "ETECH",
+  "Coure ID": "118",
+  "Tag": "API , Gateway, Management, Microservices, Architecture, Scalable, Cloud",
+  "Subtag1": "CLOUD",
+  "Subtag2": "TECH",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_118"
+ },
+ {
+  "Title ": "Advanced Trust and Anomaly Detection for IoT Devices",
+  "Plan": "ETECH",
+  "Coure ID": "119",
+  "Tag": "Real-Time, Threat Detection,Anomaly Detection, Security, Trust, IoT, Devices, IoMT",
+  "Subtag1": "SECURITY",
+  "Subtag2": "IOT",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_119"
+ },
+ {
+  "Title ": "Transformative Power of Generative AI: Principles and Applications",
+  "Plan": "ETECH",
+  "Coure ID": "120",
+  "Tag": "Artificial Intelligence, Trends,Transformative , AI, Generative AI , BERT, HealthTech, Modern",
+  "Subtag1": "GENAI",
+  "Subtag2": "BASIC",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_120"
+ },
+ {
+  "Title ": "AI Infrastructure Design: Ensuring Performance and Compliance",
+  "Plan": "ETECH",
+  "Coure ID": "122",
+  "Tag": "AI, Cloud , Infrastructure, Performance,  Compliance, Security ",
+  "Subtag1": "MAINTENANCE",
+  "Subtag2": "COMPLIANCE",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_122"
+ },
+ {
+  "Title ": "Composable Environments: Transforming FHIR Validation with AI",
+  "Plan": "ETECH",
+  "Coure ID": "123",
+  "Tag": "Healthcare, Compliance, Interoperability , FHIR , EMR, EHR, Medical records, HIPAA, Compliance, HL7",
+  "Subtag1": "OPTIMIZATION",
+  "Subtag2": "MAINTENANCE",
+  "Subtag3": "TECH",
+  "Column8": "ETECH_123"
+ },
+ {
+  "Title ": "Energy Forecasting Using Advanced AI Models",
+  "Plan": "ETECH",
+  "Coure ID": "124",
+  "Tag": "AI , Sustainability,Predictive , Analytics, Data, Energy, Forcast, Advanced, Modern, Cloud",
+  "Subtag1": "MAINTENANCE",
+  "Subtag2": "OPTIMIZATION",
+  "Subtag3": "ALL",
+  "Column8": "ETECH_124"
+ },
+ {
+  "Title ": "Assessing Accuracy and Sensitivity of AI Models",
+  "Plan": "ETECH",
+  "Coure ID": "125",
+  "Tag": "AI , Performance, Evaluation, Model, Accuracy, Sensitivity, Standards, Framework, Practice, Industry",
+  "Subtag1": "BASIC",
+  "Subtag2": "BASIC AI",
+  "Subtag3": "ALL",
+  "Column8": "ETECH_125"
+ },
+ {
+  "Title ": "Scaling Personalization: Enhancing Clinical Trials with Generative AI",
+  "Plan": "ETECH",
+  "Coure ID": "126",
+  "Tag": "Personalization, Clinical Trials,Clinical, Generative AI, AI, Lifescience",
+  "Subtag1": "CLINICAL",
+  "Subtag2": "LIFESCIENCE",
+  "Subtag3": "GENETICS",
+  "Column8": "ETECH_126"
+ },
+ {
+  "Title ": "Predicting Fibrosis Stages in NAFLD Using Advanced AI Models",
+  "Plan": "HTECH",
+  "Coure ID": "127",
+  "Tag": "Non-Alcoholic, Fatty Liver Disease , NAFLD ,AI , Liver, Disease, Fibrosis",
+  "Subtag1": "LIVER",
+  "Subtag2": "HEALTHCARE",
+  "Subtag3": "KIDNEY",
+  "Column8": "HTECH_127"
+ },
+ {
+  "Title ": "AI-Powered Fraud Detection: Improving Insurance Claim Accuracy",
+  "Plan": "HTECH",
+  "Coure ID": "128",
+  "Tag": "Fraud, Prevention , AI, Detection, Claim, Accuracy, Insurance",
+  "Subtag1": "INSURANCE",
+  "Subtag2": "HEALTHCARE",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_128"
+ },
+ {
+  "Title ": "Transforming Care: Predictive Modeling for Arrhythmogenic Right Ventricular Cardiomyopathy",
+  "Plan": "HTECH",
+  "Coure ID": "129",
+  "Tag": "Arrhythmogenic Right Ventricular Cardiomyopathy , ARVC,Cardiovascular,  Health,Predictive, Analytics",
+  "Subtag1": "HEART",
+  "Subtag2": "CARDIO",
+  "Subtag3": "ARRHYTHMOGENIC",
+  "Column8": "HTECH_129"
+ },
+ {
+  "Title ": "Streamlining Healthcare Data Interoperability",
+  "Plan": "HTECH",
+  "Coure ID": "130",
+  "Tag": "HL7, FIHR, EMR, EHR,  Interoperability, Healthcare, Fast Healthcare Interoperability Resources, HIPAA, Compliance",
+  "Subtag1": "HIPAA",
+  "Subtag2": "COMPLIANCE",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_130"
+ },
+ {
+  "Title ": "Decoding Tumor Heterogeneity: Advanced Profiling and Biomarker Discovery",
+  "Plan": "HTECH",
+  "Coure ID": "131",
+  "Tag": "Next-Generation Sequencing,  NGS, Cancer,  Cancer Treatment Targeting, Oncology ",
+  "Subtag1": "CANCER",
+  "Subtag2": "PROSTATE",
+  "Subtag3": "HEALTHCARE",
+  "Column8": "HTECH_131"
+ },
+ {
+  "Title ": "Enhancing Patient Monitoring with BERT: A Biofeedback Approach",
+  "Plan": "HTECH",
+  "Coure ID": "132",
+  "Tag": "Biofeedback , Patient Monitoring, BERT, Patient, Experience, Satisfaction, Generative AI",
+  "Subtag1": "CUSTOMER",
+  "Subtag2": "HEALTHCARE",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_132"
+ },
+ {
+  "Title ": "Harnessing BERT and LDA for Enhanced Mental Health Topic Modeling",
+  "Plan": "HTECH",
+  "Coure ID": "133",
+  "Tag": "LDA,BERT, Generative AI, Psychological Health , AI, Mental Health",
+  "Subtag1": "MENTAL",
+  "Subtag2": "SLEEP",
+  "Subtag3": "HEALTHCARE",
+  "Column8": "HTECH_133"
+ },
+ {
+  "Title ": "Enhancing Revenue Cycle with AI-Powered Verification",
+  "Plan": "HTECH",
+  "Coure ID": "135",
+  "Tag": "Healthcare, Revenue , Optimization, Cycle Management, Cost optimization",
+  "Subtag1": "REVENE",
+  "Subtag2": "HEALTHCARE",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_135"
+ },
+ {
+  "Title ": "AI-Based Triage and Diagnostic Solutions for Improved Healthcare",
+  "Plan": "HTECH",
+  "Coure ID": "136",
+  "Tag": "AI, Triage Systems, Healthcare Diagnostics, Patient, Experience",
+  "Subtag1": "TRIAGE",
+  "Subtag2": "HEALTHCARE",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_136"
+ },
+ {
+  "Title ": "AI for Pharmacy Inventory Optimization",
+  "Plan": "HTECH",
+  "Coure ID": "137",
+  "Tag": "Healthcare, Supply Chain, Pharmacy, Inventory,  Optimization",
+  "Subtag1": "PHARMACY",
+  "Subtag2": "PHARMACOVIGILANCE",
+  "Subtag3": "DRUG",
+  "Column8": "HTECH_137"
+ },
+ {
+  "Title ": "Deep Learning for Retinal Condition Classification",
+  "Plan": "HTECH",
+  "Coure ID": "138",
+  "Tag": "AI , ML, Ophthalmology, Diagnostics, Retinal,  Retinal Condition Classification, Diabetic",
+  "Subtag1": "VISION",
+  "Subtag2": "DIABETES",
+  "Column8": "HTECH_138"
+ },
+ {
+  "Title ": "Next-Gen Pharmacovigilance: Predicting ADRs with NLP and BERT",
+  "Plan": "HTECH",
+  "Coure ID": "139",
+  "Tag": "Adverse Drug Reaction , ADR, Prediction, Pharmacovigilance , Drug Safety, Trial, Clinical Trials, Pharmacy",
+  "Subtag1": "PHARMACOVIGILANCE",
+  "Subtag2": "DRUG",
+  "Subtag3": "PHARMACY",
+  "Column8": "HTECH_139"
+ },
+ {
+  "Title ": "Transforming Care: The Applications of Emotional Intelligence and AI",
+  "Plan": "HTECH",
+  "Coure ID": "140",
+  "Tag": "Healthcare , AI, Patient Centered Care , Emotional AI, Intelligence, Mental health",
+  "Subtag1": "STRESS",
+  "Subtag2": "PATIENT",
+  "Subtag3": "MENTAL",
+  "Column8": "HTECH_140"
+ },
+ {
+  "Title ": "Real-Time Object Detection for Enhanced Surgical Efficiency",
+  "Plan": "HTECH",
+  "Coure ID": "141",
+  "Tag": "AI-Driven Surgical Assistance, Surgical Workflow Optimizatio, Surgery, Surgical, Efficiency",
+  "Subtag1": "SURGERY",
+  "Subtag2": "HEALTHCARE",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_141"
+ },
+ {
+  "Title ": "Advancing Cell Analysis: A 3D CNN Approach to Time-Series Imaging",
+  "Plan": "HTECH",
+  "Coure ID": "142",
+  "Tag": "AI , Biomedical , Imaging, 3D, CNN, Biomedicine, Time series, Cell, Analysis",
+  "Subtag1": "BIOMEDICAL",
+  "Subtag2": "LIFESCIENCE",
+  "Subtag3": "CLINICAL",
+  "Column8": "HTECH_142"
+ },
+ {
+  "Title ": "Empowering Analytics: The Role of NER and BERT in Data Management",
+  "Plan": "HTECH",
+  "Coure ID": "143",
+  "Tag": "Advanced Analytics, AI, Natural Language Processing , NLP, Data Management, BERT, NER, Generative AI, Enterprise, Corpus",
+  "Subtag1": "ANALYTICS",
+  "Subtag2": "SUPPORT",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_143"
+ },
+ {
+  "Title ": "Dynamic Health Monitoring: AI Solutions for Decentralized Trials",
+  "Plan": "HTECH",
+  "Coure ID": "144",
+  "Tag": "Clinical Trials, AI, Trials, Decentralized, Centralized",
+  "Subtag1": "LIFESCIENCE",
+  "Subtag2": "CLINICAL",
+  "Subtag3": "GENETICS",
+  "Column8": "HTECH_144"
+ },
+ {
+  "Title ": "Next-Generation Sequencing Meets AI: Revolutionizing Drug Response Predictions",
+  "Plan": "HTECH",
+  "Coure ID": "145",
+  "Tag": "Drug , Drug Response, Prediction , AI, Next-Generation Sequencing , NGS,  Generative AI",
+  "Subtag1": "HEALTHCARE",
+  "Subtag2": "DRUG",
+  "Subtag3": "CLINICAL",
+  "Column8": "HTECH_145"
+ },
+ {
+  "Title ": "Advancing Diabetes Therapy with AI-Optimized Insulin Dosing",
+  "Plan": "HTECH",
+  "Coure ID": "146",
+  "Tag": "Insulin, Dosing ,Optimization, Diabetes, Management, Sugar",
+  "Subtag1": "DIABETES",
+  "Subtag2": "DOSAGE",
+  "Subtag3": "THERAPY",
+  "Column8": "HTECH_146"
+ },
+ {
+  "Title ": "Clinical AI for Advanced Patient Risk Assessment",
+  "Plan": "HTECH",
+  "Coure ID": "147",
+  "Tag": "Patient , Risk Assessment, AI , Clinical Decision Support, CDS, clinical ",
+  "Subtag1": "PATIENT",
+  "Subtag2": "CLINICAL",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_147"
+ },
+ {
+  "Title ": "Enhancing Prostate Cancer Diagnosis with AI and MRI",
+  "Plan": "HTECH",
+  "Coure ID": "148",
+  "Tag": "Prostate, Cancer Diagnosis, Cancer, Oncology, MRI , AI",
+  "Subtag1": "CANCER",
+  "Subtag2": "PROSTATE",
+  "Subtag3": "HEALTHCARE",
+  "Column8": "HTECH_148"
+ },
+ {
+  "Title ": "Advanced Binding Affinity Prediction in Drug Discovery",
+  "Plan": "HTECH",
+  "Coure ID": "149",
+  "Tag": "Advanced Drug Development Tools, Drug, Binding Affinity Prediction, Analytics, Analysis , AI, Binding ",
+  "Subtag1": "DRUG",
+  "Subtag2": "HEALTHCARE",
+  "Subtag3": "LIFESCIENCE",
+  "Column8": "HTECH_149"
+ },
+ {
+  "Title ": "Proactive Disease Management: AI for Diabetes and Hypertension Prediction",
+  "Plan": "HTECH",
+  "Coure ID": "150",
+  "Tag": "Hypertension, Hyper tension Prevention Strategies, Chronic Disease Management, Chronic, Proactive",
+  "Subtag1": "STRESS",
+  "Subtag2": "HYPERTENSION",
+  "Subtag3": "CHRONIC",
+  "Column8": "HTECH_150"
+ },
+ {
+  "Title ": "Advanced AI Techniques for Depression Detection and Management",
+  "Plan": "HTECH",
+  "Coure ID": "151",
+  "Tag": "Predictive Analytics , Mental health, Mental,  Mental wellness, Depression Detection, Depression, Care",
+  "Subtag1": "DEPRESSION",
+  "Subtag2": "STRESS",
+  "Subtag3": "MENTAL",
+  "Column8": "HTECH_151"
+ },
+ {
+  "Title ": "Predicting Asthma Attacks: A Hybrid AI Approach",
+  "Plan": "HTECH",
+  "Coure ID": "152",
+  "Tag": "Asthma Attack, Asthma, Prediction, AI, Respiratory, Breathing,allergy, immunology",
+  "Subtag1": "ASTHMA",
+  "Subtag2": "RESPIRATORY",
+  "Subtag3": "HEALTHCARE",
+  "Column8": "HTECH_152"
+ },
+ {
+  "Title ": "AI Insights for Value-Based Care: Evaluating Treatment Outcomes with BERT",
+  "Plan": "HTECH",
+  "Coure ID": "153",
+  "Tag": "AI, Clinical Evaluation, Value-Based Care, Clinical , BERT, Treatment, Analytics",
+  "Subtag1": "CARE",
+  "Subtag2": "CLINICAL",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_153"
+ },
+ {
+  "Title ": "Transforming Equipment Reliability in Clinics with Predictive AI",
+  "Plan": "HTECH",
+  "Coure ID": "154",
+  "Tag": "Operational Efficiency, Clinics, Predictive Analytics, Clinical Operations, Clinical , Equipment, Maintenance",
+  "Subtag1": "EQUIPMENT",
+  "Subtag2": "CLINICAL",
+  "Subtag3": "MAINTENANCE",
+  "Column8": "HTECH_154"
+ },
+ {
+  "Title ": "Advancing Alzheimer's Diagnostics with Generative AI",
+  "Plan": "HTECH",
+  "Coure ID": "155",
+  "Tag": "Neurology, Alzheimer, Disease Diagnostics, Memory loss, AI",
+  "Subtag1": "NEUROLOGY",
+  "Subtag2": "ALZHEIMER",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_155"
+ },
+ {
+  "Title ": "Transforming Surgical Scheduling with Generative AI and Predictive Insights",
+  "Plan": "HTECH",
+  "Coure ID": "156",
+  "Tag": "Clinical Settings, Clinical, Surgical Scheduling, Surgical Workflow Optimization, Surgery, Workflow, AI",
+  "Subtag1": "SURGERY",
+  "Subtag2": "CLINICAL",
+  "Subtag3": "HEALTHCARE",
+  "Column8": "HTECH_156"
+ },
+ {
+  "Title ": "Multimodal Machine Learning for Effective ECG Arrhythmia Diagnosis",
+  "Plan": "HTECH",
+  "Coure ID": "157",
+  "Tag": "Predictive Analytics, Cardiology, ECG, Arrhythmia Diagnosis, Arrhythmia, heart attack, Heart ailment",
+  "Subtag1": "ECG",
+  "Subtag2": "CARDIO",
+  "Subtag3": "ARRHYTHMAIA",
+  "Column8": "HTECH_157"
+ },
+ {
+  "Title ": "Dynamic Monitoring and Fluid Management for ICU Sepsis Patients",
+  "Plan": "HTECH",
+  "Coure ID": "158",
+  "Tag": "ICU , Sepsis Diagnosis, Treatment, Sepsis, Critical Care, ICU,  Management",
+  "Subtag1": "CARE",
+  "Subtag2": "EMERGENCY",
+  "Subtag3": "SEPSIS",
+  "Column8": "HTECH_158"
+ },
+ {
+  "Title ": "Revolutionizing Severe Trauma Management with AI Insights",
+  "Plan": "HTECH",
+  "Coure ID": "159",
+  "Tag": "Predictive, AI, Patient Care, Patient, Emergency, Trauma Care, Severe Trauma",
+  "Subtag1": "TRAUMA",
+  "Subtag2": "EMERGENCY",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_159"
+ },
+ {
+  "Title ": "Predicting Treatment Efficacy in Regenerative Medicine with AI",
+  "Plan": "HTECH",
+  "Coure ID": "160",
+  "Tag": "Stem cell, Treatment Efficacy, Prediction, Regenerative Medicine, AI",
+  "Subtag1": "REGENERATIVE",
+  "Subtag3": "CELL",
+  "Column8": "HTECH_160"
+ },
+ {
+  "Title ": "Multi-Factor Predictive Modeling in Genetics and Genomics",
+  "Plan": "HTECH",
+  "Coure ID": "161",
+  "Tag": "Genomic, Genomic Medicine, Predictive Modeling, Genetics, Genomics, AI",
+  "Subtag1": "GENETICS",
+  "Subtag2": "GENOMICS",
+  "Subtag3": "LIFESCIENCE",
+  "Column8": "HTECH_161"
+ },
+ {
+  "Title ": "Deep Learning for Cardiovascular Risk and Continuous Outcome Analysis",
+  "Plan": "HTECH",
+  "Coure ID": "162",
+  "Tag": "Cardiovascular,Cardiovascular Risk Prediction, Heart, Analysis, Cardio",
+  "Subtag1": "CARDIO",
+  "Subtag2": "HEART",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_162"
+ },
+ {
+  "Title ": "Deep Learning for EEG Time-Series Prediction",
+  "Plan": "HTECH",
+  "Coure ID": "163",
+  "Tag": "Predictive Analytics , Neuroscience, Neurology, EEG, AI, ML, Time series ",
+  "Subtag1": "EEG",
+  "Subtag2": "NEUROSCIENCE",
+  "Subtag3": "HEALTH",
+  "Column8": "HTECH_163"
+ },
+ {
+  "Title ": "Optimizing Apoptotic Cell Classification through Advanced Image Segmentation",
+  "Plan": "HTECH",
+  "Coure ID": "164",
+  "Tag": "Pathology, Medical Imaging, Apoptotic, Cell Classification, Segmentation",
+  "Subtag1": "PATHOLOGY",
+  "Subtag2": "APOPTOTIC",
+  "Subtag3": "CELL",
+  "Column8": "HTECH_164"
+ },
+ {
+  "Title ": "Enhanced Surgical Training with AI Segmentation",
+  "Plan": "HTECH",
+  "Coure ID": "165",
+  "Tag": "Surgical Skills, Surgical Training, Surgery, Simulations, AI, Tools, Robot, Machines",
+  "Subtag1": "SURGERY",
+  "Subtag2": "HEALTHCARE",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_165"
+ },
+ {
+  "Title ": "AI-Driven Insights into Alcohol-Induced Kidney Complications",
+  "Plan": "HTECH",
+  "Coure ID": "166",
+  "Tag": "Predictive Analytics ,  Kidney Disease, Nephrology, Kidney , Alcohol, AI",
+  "Subtag1": "ALCOHOL",
+  "Subtag2": "KIDNEY",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_166"
+ },
+ {
+  "Title ": "Sleep Disorder Classification: A Transformer-Based AI Approach",
+  "Plan": "HTECH",
+  "Coure ID": "167",
+  "Tag": "Sleep Disorders, Sleep Apnea, Sleep disorder, AI,  Sleep",
+  "Subtag1": "SLEEP",
+  "Subtag2": "MENTAL",
+  "Subtag3": "ALL",
+  "Column8": "HTECH_167"
+ },
+ {
+  "Title ": "Healthcare AI Model Selection: Insights and Guidance for Practitioners",
+  "Plan": "HTECH",
+  "Coure ID": "168",
+  "Tag": "Predictive Analytics, Healthcare Practice, Practitioners, Practice",
+  "Subtag1": "LIFESCIENCE",
+  "Subtag2": "HEALTH",
+  "Subtag3": "ANALYTICS",
+  "Column8": "HTECH_168"
+ },
+ {
+  "Title ": "From Genetics to Prediction: Custom Algorithms for Familial Hypercholesterolemia",
+  "Plan": "HTECH",
+  "Coure ID": "169",
+  "Tag": "Familial Hypercholesterolemia, Genetics , Genomics, Hypercholesterolemia, Lipid",
+  "Subtag1": "GENETICS",
+  "Subtag2": "CHOLESTEROL",
+  "Subtag3": "HEALTHCARE",
+  "Column8": "HTECH_169"
+ },
+ {
+  "Title ": "Leveraging AI for Comprehensive Mood Assessment in Patient Care",
+  "Plan": "HTECH",
+  "Coure ID": "170",
+  "Tag": "Predictive Analytics, Psychiatry, Mental Health, Mood , Patient care, schizophrenia",
+  "Subtag1": "MENTAL",
+  "Subtag2": "SLEEP",
+  "Subtag3": "ANALYTICS",
+  "Column8": "HTECH_170"
+ },
+ {
+  "Title ": "Evaluating Sepsis Risk via Machine Learning",
+  "Plan": "HTECH",
+  "Coure ID": "171",
+  "Tag": "Predictive Analytics, Early Detection , Sepsis, Critical Care, Risk, AI, ML",
+  "Subtag1": "CARE",
+  "Subtag2": "SEPSIS",
+  "Subtag3": "ANALYTICS",
+  "Column8": "HTECH_171"
+ },
+ {
+  "Title ": "AI Models in Cardiac Tissue Engineering Applications",
+  "Plan": "HTECH",
+  "Coure ID": "172",
+  "Tag": "Cardiac Tissue, Cardiac, Engineering, Biomedical , AI , ML, Tissue",
+  "Subtag1": "CARDIO",
+  "Subtag2": "TISSUE",
+  "Subtag3": "HEART",
+  "Column8": "HTECH_172"
+ },
+ {
+  "Title ": "Multi-Modal AI: Elevating HNSCC Diagnostic Accuracy",
+  "Plan": "HTECH",
+  "Coure ID": "173",
+  "Tag": "HNSCC, Diagnosis, Oncology, Cancer, AI, Multi-model",
+  "Subtag1": "HEAD",
+  "Subtag2": "NECK",
+  "Subtag3": "CANCER",
+  "Column8": "HTECH_173"
+ }
+],
+"Sheet2":[]
+}

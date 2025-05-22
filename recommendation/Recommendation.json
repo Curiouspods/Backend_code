@@ -1,0 +1,724 @@
+[
+ {
+  "Video ": "Generative AI in Digital Architectures",
+  "Course id": "ETECH_84",
+  "Recommend Video 1": "ETECH_114",
+  "Recommend Video 2": "ETECH_115",
+  "Recommend Video 3": "ETECH_120",
+  "Recommend Video 4": "ETECH_125",
+  "Recommend Video 5": "ETECH_105"
+ },
+ {
+  "Video ": "Ethics and Regulations: A Blockchain Approach to Medical Article Compliance",
+  "Course id": "ETECH_85",
+  "Recommend Video 1": "ETECH_86",
+  "Recommend Video 2": "ETECH_87",
+  "Recommend Video 3": "ETECH_94",
+  "Recommend Video 4": "ETECH_96",
+  "Recommend Video 5": "ETECH_103"
+ },
+ {
+  "Video ": "Assessing Impact: Causal Inference Techniques",
+  "Course id": "ETECH_86",
+  "Recommend Video 1": "ETECH_92",
+  "Recommend Video 2": "ETECH_98",
+  "Recommend Video 3": "ETECH_100",
+  "Recommend Video 4": "ETECH_101",
+  "Recommend Video 5": "ETECH_111"
+ },
+ {
+  "Video ": "Transforming Change Management with BERT and NLP",
+  "Course id": "ETECH_87",
+  "Recommend Video 1": "ETECH_88",
+  "Recommend Video 2": "ETECH_109",
+  "Recommend Video 3": "ETECH_113",
+  "Recommend Video 4": "ETECH_96",
+  "Recommend Video 5": "ETECH_124"
+ },
+ {
+  "Video ": "Revolutionizing DevSecOps: AI and Generative AI in Action",
+  "Course id": "ETECH_88",
+  "Recommend Video 1": "ETECH_87",
+  "Recommend Video 2": "ETECH_109",
+  "Recommend Video 3": "ETECH_113",
+  "Recommend Video 4": "ETECH_107",
+  "Recommend Video 5": "ETECH_85"
+ },
+ {
+  "Video ": "Blockchain and AI: Transforming Pharmacy Payments with Smart Contracts",
+  "Course id": "ETECH_90",
+  "Recommend Video 1": "ETECH_110",
+  "Recommend Video 2": "ETECH_116",
+  "Recommend Video 3": "ETECH_111",
+  "Recommend Video 4": "ETECH_122",
+  "Recommend Video 5": "ETECH_105"
+ },
+ {
+  "Video ": "Cloud Computing Essentials: Enhancing Predictive Analytics with SHAP",
+  "Course id": "ETECH_92",
+  "Recommend Video 1": "ETECH_94",
+  "Recommend Video 2": "ETECH_111",
+  "Recommend Video 3": "ETECH_86",
+  "Recommend Video 4": "ETECH_123",
+  "Recommend Video 5": "ETECH_103"
+ },
+ {
+  "Video ": "Navigating Risks: How K-Nearest Neighbors Enhance Predictive Analytics",
+  "Course id": "ETECH_94",
+  "Recommend Video 1": "ETECH_100",
+  "Recommend Video 2": "ETECH_101",
+  "Recommend Video 3": "ETECH_111",
+  "Recommend Video 4": "ETECH_108",
+  "Recommend Video 5": "ETECH_107"
+ },
+ {
+  "Video ": "Real-Time Churn Prediction with Machine Learning",
+  "Course id": "ETECH_96",
+  "Recommend Video 1": "ETECH_105",
+  "Recommend Video 2": "ETECH_107",
+  "Recommend Video 3": "ETECH_108",
+  "Recommend Video 4": "ETECH_110",
+  "Recommend Video 5": "ETECH_111"
+ },
+ {
+  "Video ": "Zero Trust in Action: Securing Data with Robust Access Control",
+  " ": " ",
+  "Course id": "ETECH_98",
+  "Recommend Video 1": "ETECH_103",
+  "Recommend Video 2": "ETECH_116",
+  "Recommend Video 3": "ETECH_117",
+  "Recommend Video 4": "ETECH_119",
+  "Recommend Video 5": "ETECH_108"
+ },
+ {
+  "Video ": "Proactive Defect Management Using Generative AI",
+  "Course id": "ETECH_99",
+  "Recommend Video 1": "ETECH_111",
+  "Recommend Video 2": "ETECH_113",
+  "Recommend Video 3": "ETECH_108",
+  "Recommend Video 4": "ETECH_122",
+  "Recommend Video 5": "ETECH_105"
+ },
+ {
+  "Video ": "Performance Insights: Access Time Analysis of SRAM and DRAM",
+  "Course id": "ETECH_100",
+  "Recommend Video 1": "ETECH_124",
+  "Recommend Video 2": "ETECH_105",
+  "Recommend Video 3": "ETECH_107",
+  "Recommend Video 4": "ETECH_122",
+  "Recommend Video 5": "ETECH_109"
+ },
+ {
+  "Video ": "Strategic SharePoint Governance: Optimizing Content Management and Collaboration",
+  "Course id": "ETECH_101",
+  "Recommend Video 1": "ETECH_85",
+  "Recommend Video 2": "ETECH_87",
+  "Recommend Video 3": "ETECH_94",
+  "Recommend Video 4": "ETECH_123",
+  "Recommend Video 5": "ETECH_116"
+ },
+ {
+  "Video ": "Predictive Modeling and Anomaly Detection with SRE and AIOps",
+  "Course id": "ETECH_102",
+  "Recommend Video 1": "ETECH_105",
+  "Recommend Video 2": "ETECH_107",
+  "Recommend Video 3": "ETECH_108",
+  "Recommend Video 4": "ETECH_110",
+  "Recommend Video 5": "ETECH_116"
+ },
+ {
+  "Video ": "Generative AI for Tamper-Resistant Watermarks in Digital Rights Management",
+  "Course id": "ETECH_103",
+  "Recommend Video 1": "ETECH_100",
+  "Recommend Video 2": "ETECH_116",
+  "Recommend Video 3": "ETECH_117",
+  "Recommend Video 4": "ETECH_98",
+  "Recommend Video 5": "ETECH_105"
+ },
+ {
+  "Video ": "Streamlining Customer Choices: A Subscription Box Recommendation System",
+  "Course id": "ETECH_105",
+  "Recommend Video 1": "ETECH_107",
+  "Recommend Video 2": "ETECH_108",
+  "Recommend Video 3": "ETECH_96",
+  "Recommend Video 4": "ETECH_100",
+  "Recommend Video 5": "ETECH_110"
+ },
+ {
+  "Video ": "Targeted Interventions: Harnessing AI for Personalized Customer Motivation\n",
+  "Course id": "ETECH_107",
+  "Recommend Video 1": "ETECH_111",
+  "Recommend Video 2": "ETECH_105",
+  "Recommend Video 3": "ETECH_96",
+  "Recommend Video 4": "ETECH_100",
+  "Recommend Video 5": "ETECH_107"
+ },
+ {
+  "Video ": "Predicting User Drop-Offs: Insights from Journey Data Analysis",
+  "Course id": "ETECH_108",
+  "Recommend Video 1": "ETECH_107",
+  "Recommend Video 2": "ETECH_110",
+  "Recommend Video 3": "ETECH_111",
+  "Recommend Video 4": "ETECH_119",
+  "Recommend Video 5": "ETECH_96"
+ },
+ {
+  "Video ": "Risk Management in Digital Transformation: Strategies for Resource Optimization",
+  "Course id": "ETECH_109",
+  "Recommend Video 1": "ETECH_105",
+  "Recommend Video 2": "ETECH_107",
+  "Recommend Video 3": "ETECH_108",
+  "Recommend Video 4": "ETECH_110",
+  "Recommend Video 5": "ETECH_113"
+ },
+ {
+  "Video ": "Harnessing BERT for Accurate Dosage Guidance in Customer Support",
+  "Course id": "ETECH_110",
+  "Recommend Video 1": "ETECH_107",
+  "Recommend Video 2": "ETECH_96",
+  "Recommend Video 3": "ETECH_105",
+  "Recommend Video 4": "ETECH_100",
+  "Recommend Video 5": "ETECH_113"
+ },
+ {
+  "Video ": "Navigating Emotions: Advanced Techniques in Sentiment Categorization",
+  "Course id": "ETECH_111",
+  "Recommend Video 1": "ETECH_108",
+  "Recommend Video 2": "ETECH_107",
+  "Recommend Video 3": "ETECH_105",
+  "Recommend Video 4": "ETECH_116",
+  "Recommend Video 5": "ETECH_85"
+ },
+ {
+  "Video ": "Automating Documentation: AI for Agile Project Delivery",
+  "Course id": "ETECH_113",
+  "Recommend Video 1": "ETECH_105",
+  "Recommend Video 2": "ETECH_107",
+  "Recommend Video 3": "ETECH_108",
+  "Recommend Video 4": "ETECH_110",
+  "Recommend Video 5": "ETECH_87"
+ },
+ {
+  "Video ": "Exploring Generative AI: Models and Use Cases",
+  "Course id": "ETECH_114",
+  "Recommend Video 1": "ETECH_103",
+  "Recommend Video 2": "ETECH_116",
+  "Recommend Video 3": "ETECH_117",
+  "Recommend Video 4": "ETECH_98",
+  "Recommend Video 5": "ETECH_113"
+ },
+ {
+  "Video ": "Generative AI Models: From Theory to Application",
+  "Course id": "ETECH_115",
+  "Recommend Video 1": "ETECH_107",
+  "Recommend Video 2": "ETECH_108",
+  "Recommend Video 3": "ETECH_96",
+  "Recommend Video 4": "ETECH_110",
+  "Recommend Video 5": "ETECH_109"
+ },
+ {
+  "Video ": "Multi-Dimensional Cybersecurity: XSS Safeguards, Traffic Analysis, and Robust IAM Practices",
+  "Course id": "ETECH_116",
+  "Recommend Video 1": "ETECH_111",
+  "Recommend Video 2": "ETECH_105",
+  "Recommend Video 3": "ETECH_96",
+  "Recommend Video 4": "ETECH_113",
+  "Recommend Video 5": "ETECH_109"
+ },
+ {
+  "Video ": "Comprehensive Threat Mitigation: NMAP Scans, DDoS Defense, and SQL Injection Safeguards",
+  "Course id": "ETECH_117",
+  "Recommend Video 1": "ETECH_103",
+  "Recommend Video 2": "ETECH_116",
+  "Recommend Video 3": "ETECH_123",
+  "Recommend Video 4": "ETECH_111",
+  "Recommend Video 5": "ETECH_113"
+ },
+ {
+  "Video ": "Building Scalable Microservices for Enhanced Efficiency",
+  "Course id": "ETECH_118",
+  "Recommend Video 1": "ETECH_107",
+  "Recommend Video 2": "ETECH_108",
+  "Recommend Video 3": "ETECH_110",
+  "Recommend Video 4": "ETECH_113",
+  "Recommend Video 5": "ETECH_105"
+ },
+ {
+  "Video ": "Advanced Trust and Anomaly Detection for IoT Devices",
+  " ": " ",
+  "Course id": "ETECH_119",
+  "Recommend Video 1": "ETECH_111",
+  "Recommend Video 2": "ETECH_105",
+  "Recommend Video 3": "ETECH_98",
+  "Recommend Video 4": "ETECH_122",
+  "Recommend Video 5": "ETECH_101"
+ },
+ {
+  "Video ": "Transformative Power of Generative AI: Principles and Applications",
+  "Course id": "ETECH_120",
+  "Recommend Video 1": "ETECH_108",
+  "Recommend Video 2": "ETECH_110",
+  "Recommend Video 3": "ETECH_105",
+  "Recommend Video 4": "ETECH_114",
+  "Recommend Video 5": "ETECH_107"
+ },
+ {
+  "Video ": "AI Infrastructure Design: Ensuring Performance and Compliance",
+  "Course id": "ETECH_122",
+  "Recommend Video 1": "ETECH_105",
+  "Recommend Video 2": "ETECH_116",
+  "Recommend Video 3": "ETECH_111",
+  "Recommend Video 4": "ETECH_110",
+  "Recommend Video 5": "ETECH_123"
+ },
+ {
+  "Video ": "Composable Environments: Transforming FHIR Validation with AI",
+  "Course id": "ETECH_123",
+  "Recommend Video 1": "ETECH_107",
+  "Recommend Video 2": "ETECH_96",
+  "Recommend Video 3": "ETECH_116",
+  "Recommend Video 4": "ETECH_87",
+  "Recommend Video 5": "ETECH_113"
+ },
+ {
+  "Video ": "Energy Forecasting Using Advanced AI Models",
+  "Course id": "ETECH_124",
+  "Recommend Video 1": "ETECH_108",
+  "Recommend Video 2": "ETECH_107",
+  "Recommend Video 3": "ETECH_85",
+  "Recommend Video 4": "ETECH_110",
+  "Recommend Video 5": "ETECH_123"
+ },
+ {
+  "Video ": "Assessing Accuracy and Sensitivity of AI Models",
+  "Course id": "ETECH_125",
+  "Recommend Video 1": "ETECH_124",
+  "Recommend Video 2": "ETECH_105",
+  "Recommend Video 3": "ETECH_107",
+  "Recommend Video 4": "ETECH_98",
+  "Recommend Video 5": "ETECH_110"
+ },
+ {
+  "Video ": "Scaling Personalization: Enhancing Clinical Trials with Generative AI",
+  "Course id": "ETECH_126",
+  "Recommend Video 1": "ETECH_85",
+  "Recommend Video 2": "ETECH_87",
+  "Recommend Video 3": "ETECH_94",
+  "Recommend Video 4": "ETECH_110",
+  "Recommend Video 5": "ETECH_98"
+ },
+ {
+  "Video ": "Predicting Fibrosis Stages in NAFLD Using Advanced AI Models",
+  "Course id": "HTECH_127",
+  "Recommend Video 1": "HTECH_128",
+  "Recommend Video 2": "HTECH_132",
+  "Recommend Video 3": "HTECH_135",
+  "Recommend Video 4": "HTECH_136",
+  "Recommend Video 5": "HTECH_130"
+ },
+ {
+  "Video ": "AI-Powered Fraud Detection: Improving Insurance Claim Accuracy",
+  "Course id": "HTECH_128",
+  "Recommend Video 1": "HTECH_127",
+  "Recommend Video 2": "HTECH_132",
+  "Recommend Video 3": "HTECH_135",
+  "Recommend Video 4": "HTECH_136",
+  "Recommend Video 5": "HTECH_128"
+ },
+ {
+  "Video ": "Transforming Care: Predictive Modeling for Arrhythmogenic Right Ventricular Cardiomyopathy",
+  "Course id": "HTECH_129",
+  "Recommend Video 1": "HTECH_157",
+  "Recommend Video 2": "HTECH_153",
+  "Recommend Video 3": "HTECH_162",
+  "Recommend Video 4": "HTECH_150",
+  "Recommend Video 5": "HTECH_130"
+ },
+ {
+  "Video ": "Streamlining Healthcare Data Interoperability",
+  "Course id": "HTECH_130",
+  "Recommend Video 1": "HTECH_153",
+  "Recommend Video 2": "HTECH_159",
+  "Recommend Video 3": "HTECH_162",
+  "Recommend Video 4": "HTECH_165",
+  "Recommend Video 5": "HTECH_132"
+ },
+ {
+  "Video ": "Decoding Tumor Heterogeneity: Advanced Profiling and Biomarker Discovery",
+  "Course id": "HTECH_131",
+  "Recommend Video 1": "HTECH_148",
+  "Recommend Video 2": "HTECH_162",
+  "Recommend Video 3": "HTECH_150",
+  "Recommend Video 4": "HTECH_127",
+  "Recommend Video 5": "HTECH_135"
+ },
+ {
+  "Video ": "Enhancing Patient Monitoring with BERT: A Biofeedback Approach",
+  "Course id": "HTECH_132",
+  "Recommend Video 1": "HTECH_127",
+  "Recommend Video 2": "HTECH_135",
+  "Recommend Video 3": "HTECH_136",
+  "Recommend Video 4": "HTECH_141",
+  "Recommend Video 5": "HTECH_128"
+ },
+ {
+  "Video ": "Harnessing BERT and LDA for Enhanced Mental Health Topic Modeling",
+  "Course id": "HTECH_133",
+  "Recommend Video 1": "HTECH_150",
+  "Recommend Video 2": "HTECH_153",
+  "Recommend Video 3": "HTECH_151",
+  "Recommend Video 4": "HTECH_127",
+  "Recommend Video 5": "HTECH_128"
+ },
+ {
+  "Video ": "Enhancing Revenue Cycle with AI-Powered Verification",
+  "Course id": "HTECH_135",
+  "Recommend Video 1": "HTECH_165",
+  "Recommend Video 2": "HTECH_127",
+  "Recommend Video 3": "HTECH_149",
+  "Recommend Video 4": "HTECH_141",
+  "Recommend Video 5": "HTECH_130"
+ },
+ {
+  "Video ": "AI-Based Triage and Diagnostic Solutions for Improved Healthcare",
+  "Course id": "HTECH_136",
+  "Recommend Video 1": "HTECH_127",
+  "Recommend Video 2": "HTECH_141",
+  "Recommend Video 3": "HTECH_149",
+  "Recommend Video 4": "HTECH_165",
+  "Recommend Video 5": "HTECH_167"
+ },
+ {
+  "Video ": "AI for Pharmacy Inventory Optimization",
+  "Course id": "HTECH_137",
+  "Recommend Video 1": "HTECH_128",
+  "Recommend Video 2": "HTECH_130",
+  "Recommend Video 3": "HTECH_143",
+  "Recommend Video 4": "HTECH_132",
+  "Recommend Video 5": "HTECH_141"
+ },
+ {
+  "Video ": "Deep Learning for Retinal Condition Classification",
+  "Course id": "HTECH_138",
+  "Recommend Video 1": "HTECH_130",
+  "Recommend Video 2": "HTECH_158",
+  "Recommend Video 3": "HTECH_149",
+  "Recommend Video 4": "HTECH_135",
+  "Recommend Video 5": "HTECH_129"
+ },
+ {
+  "Video ": "Next-Gen Pharmacovigilance: Predicting ADRs with NLP and BERT",
+  "Course id": "HTECH_139",
+  "Recommend Video 1": "HTECH_153",
+  "Recommend Video 2": "HTECH_167",
+  "Recommend Video 3": "HTECH_158",
+  "Recommend Video 4": "HTECH_136",
+  "Recommend Video 5": "HTECH_127"
+ },
+ {
+  "Video ": "Transforming Care: The Applications of Emotional Intelligence and AI",
+  "Course id": "HTECH_140",
+  "Recommend Video 1": "HTECH_150",
+  "Recommend Video 2": "HTECH_151",
+  "Recommend Video 3": "HTECH_131",
+  "Recommend Video 4": "HTECH_153",
+  "Recommend Video 5": "HTECH_162"
+ },
+ {
+  "Video ": "Real-Time Object Detection for Enhanced Surgical Efficiency",
+  "Course id": "HTECH_141",
+  "Recommend Video 1": "HTECH_127",
+  "Recommend Video 2": "HTECH_128",
+  "Recommend Video 3": "HTECH_171",
+  "Recommend Video 4": "HTECH_153",
+  "Recommend Video 5": "HTECH_141"
+ },
+ {
+  "Video ": "Advancing Cell Analysis: A 3D CNN Approach to Time-Series Imaging",
+  "Course id": "HTECH_142",
+  "Recommend Video 1": "HTECH_162",
+  "Recommend Video 2": "HTECH_158",
+  "Recommend Video 3": "HTECH_151",
+  "Recommend Video 4": "HTECH_153",
+  "Recommend Video 5": "HTECH_127"
+ },
+ {
+  "Video ": "Empowering Analytics: The Role of NER and BERT in Data Management",
+  "Course id": "HTECH_143",
+  "Recommend Video 1": "HTECH_128",
+  "Recommend Video 2": "HTECH_167",
+  "Recommend Video 3": "HTECH_143",
+  "Recommend Video 4": "HTECH_141",
+  "Recommend Video 5": "HTECH_162"
+ },
+ {
+  "Video ": "Dynamic Health Monitoring: AI Solutions for Decentralized Trials",
+  "Course id": "HTECH_144",
+  "Recommend Video 1": "HTECH_130",
+  "Recommend Video 2": "HTECH_135",
+  "Recommend Video 3": "HTECH_128",
+  "Recommend Video 4": "HTECH_158",
+  "Recommend Video 5": "HTECH_143"
+ },
+ {
+  "Video ": "Next-Generation Sequencing Meets AI: Revolutionizing Drug Response Predictions",
+  "Course id": "HTECH_145",
+  "Recommend Video 1": "HTECH_132",
+  "Recommend Video 2": "HTECH_143",
+  "Recommend Video 3": "HTECH_165",
+  "Recommend Video 4": "HTECH_130",
+  "Recommend Video 5": "HTECH_138"
+ },
+ {
+  "Video ": "Advancing Diabetes Therapy with AI-Optimized Insulin Dosing",
+  "Course id": "HTECH_146",
+  "Recommend Video 1": "HTECH_135",
+  "Recommend Video 2": "HTECH_155",
+  "Recommend Video 3": "HTECH_153",
+  "Recommend Video 4": "HTECH_167",
+  "Recommend Video 5": "HTECH_139"
+ },
+ {
+  "Video ": "Clinical AI for Advanced Patient Risk Assessment",
+  "Course id": "HTECH_147",
+  "Recommend Video 1": "HTECH_136",
+  "Recommend Video 2": "HTECH_155",
+  "Recommend Video 3": "HTECH_141",
+  "Recommend Video 4": "HTECH_128",
+  "Recommend Video 5": "HTECH_140"
+ },
+ {
+  "Video ": "Enhancing Prostate Cancer Diagnosis with AI and MRI",
+  "Course id": "HTECH_148",
+  "Recommend Video 1": "HTECH_131",
+  "Recommend Video 2": "HTECH_153",
+  "Recommend Video 3": "HTECH_151",
+  "Recommend Video 4": "HTECH_158",
+  "Recommend Video 5": "HTECH_141"
+ },
+ {
+  "Video ": "Advanced Binding Affinity Prediction in Drug Discovery",
+  "Course id": "HTECH_149",
+  "Recommend Video 1": "HTECH_127",
+  "Recommend Video 2": "HTECH_128",
+  "Recommend Video 3": "HTECH_141",
+  "Recommend Video 4": "HTECH_136",
+  "Recommend Video 5": "HTECH_142"
+ },
+ {
+  "Video ": "Proactive Disease Management: AI for Diabetes and Hypertension Prediction",
+  "Course id": "HTECH_150",
+  "Recommend Video 1": "HTECH_128",
+  "Recommend Video 2": "HTECH_158",
+  "Recommend Video 3": "HTECH_149",
+  "Recommend Video 4": "HTECH_132",
+  "Recommend Video 5": "HTECH_143"
+ },
+ {
+  "Video ": "Advanced AI Techniques for Depression Detection and Management",
+  "Course id": "HTECH_151",
+  "Recommend Video 1": "HTECH_130",
+  "Recommend Video 2": "HTECH_167",
+  "Recommend Video 3": "HTECH_127",
+  "Recommend Video 4": "HTECH_155",
+  "Recommend Video 5": "HTECH_144"
+ },
+ {
+  "Video ": "Predicting Asthma Attacks: A Hybrid AI Approach",
+  "Course id": "HTECH_152",
+  "Recommend Video 1": "HTECH_162",
+  "Recommend Video 2": "HTECH_153",
+  "Recommend Video 3": "HTECH_128",
+  "Recommend Video 4": "HTECH_167",
+  "Recommend Video 5": "HTECH_145"
+ },
+ {
+  "Video ": "AI Insights for Value-Based Care: Evaluating Treatment Outcomes with BERT",
+  "Course id": "HTECH_153",
+  "Recommend Video 1": "HTECH_158",
+  "Recommend Video 2": "HTECH_171",
+  "Recommend Video 3": "HTECH_128",
+  "Recommend Video 4": "HTECH_165",
+  "Recommend Video 5": "HTECH_146"
+ },
+ {
+  "Video ": "Transforming Equipment Reliability in Clinics with Predictive AI",
+  "Course id": "HTECH_154",
+  "Recommend Video 1": "HTECH_167",
+  "Recommend Video 2": "HTECH_158",
+  "Recommend Video 3": "HTECH_153",
+  "Recommend Video 4": "HTECH_136",
+  "Recommend Video 5": "HTECH_147"
+ },
+ {
+  "Video ": "Advancing Alzheimer's Diagnostics with Generative AI ",
+  "Course id": "HTECH_155",
+  "Recommend Video 1": "HTECH_167",
+  "Recommend Video 2": "HTECH_143",
+  "Recommend Video 3": "HTECH_165",
+  "Recommend Video 4": "HTECH_132",
+  "Recommend Video 5": "HTECH_148"
+ },
+ {
+  "Video ": "Transforming Surgical Scheduling with Generative AI and Predictive Insights",
+  "Course id": "HTECH_156",
+  "Recommend Video 1": "HTECH_159",
+  "Recommend Video 2": "HTECH_127",
+  "Recommend Video 3": "HTECH_128",
+  "Recommend Video 4": "HTECH_141",
+  "Recommend Video 5": "HTECH_149"
+ },
+ {
+  "Video ": "Multimodal Machine Learning for Effective ECG Arrhythmia Diagnosis",
+  "Course id": "HTECH_157",
+  "Recommend Video 1": "HTECH_129",
+  "Recommend Video 2": "HTECH_128",
+  "Recommend Video 3": "HTECH_130",
+  "Recommend Video 4": "HTECH_158",
+  "Recommend Video 5": "HTECH_150"
+ },
+ {
+  "Video ": "Dynamic Monitoring and Fluid Management for ICU Sepsis Patients",
+  "Course id": "HTECH_158",
+  "Recommend Video 1": "HTECH_153",
+  "Recommend Video 2": "HTECH_171",
+  "Recommend Video 3": "HTECH_141",
+  "Recommend Video 4": "HTECH_167",
+  "Recommend Video 5": "HTECH_128"
+ },
+ {
+  "Video ": "Revolutionizing Severe Trauma Management with AI Insights",
+  "Course id": "HTECH_159",
+  "Recommend Video 1": "HTECH_162",
+  "Recommend Video 2": "HTECH_132",
+  "Recommend Video 3": "HTECH_141",
+  "Recommend Video 4": "HTECH_143",
+  "Recommend Video 5": "HTECH_127"
+ },
+ {
+  "Video ": "Predicting Treatment Efficacy in Regenerative Medicine with AI",
+  "Course id": "HTECH_160",
+  "Recommend Video 1": "HTECH_153",
+  "Recommend Video 2": "HTECH_128",
+  "Recommend Video 3": "HTECH_158",
+  "Recommend Video 4": "HTECH_132",
+  "Recommend Video 5": "HTECH_157"
+ },
+ {
+  "Video ": "Multi-Factor Predictive Modeling in Genetics and Genomics",
+  "Course id": "HTECH_161",
+  "Recommend Video 1": "HTECH_169",
+  "Recommend Video 2": "HTECH_130",
+  "Recommend Video 3": "HTECH_167",
+  "Recommend Video 4": "HTECH_158",
+  "Recommend Video 5": "HTECH_153"
+ },
+ {
+  "Video ": "Deep Learning for Cardiovascular Risk and Continuous Outcome Analysis",
+  "Course id": "HTECH_162",
+  "Recommend Video 1": "HTECH_172",
+  "Recommend Video 2": "HTECH_159",
+  "Recommend Video 3": "HTECH_162",
+  "Recommend Video 4": "HTECH_155",
+  "Recommend Video 5": "HTECH_148"
+ },
+ {
+  "Video ": "Deep Learning for EEG Time-Series Prediction",
+  "Course id": "HTECH_163",
+  "Recommend Video 1": "HTECH_132",
+  "Recommend Video 2": "HTECH_158",
+  "Recommend Video 3": "HTECH_136",
+  "Recommend Video 4": "HTECH_159",
+  "Recommend Video 5": "HTECH_127"
+ },
+ {
+  "Video ": "Optimizing Apoptotic Cell Classification through Advanced Image Segmentation",
+  "Course id": "HTECH_164",
+  "Recommend Video 1": "HTECH_136",
+  "Recommend Video 2": "HTECH_167",
+  "Recommend Video 3": "HTECH_132",
+  "Recommend Video 4": "HTECH_153",
+  "Recommend Video 5": "HTECH_150"
+ },
+ {
+  "Video ": "Enhanced Surgical Training with AI Segmentation",
+  "Course id": "HTECH_165",
+  "Recommend Video 1": "HTECH_127",
+  "Recommend Video 2": "HTECH_167",
+  "Recommend Video 3": "HTECH_135",
+  "Recommend Video 4": "HTECH_141",
+  "Recommend Video 5": "HTECH_165"
+ },
+ {
+  "Video ": "AI-Driven Insights into Alcohol-Induced Kidney Complications",
+  "Course id": "HTECH_166",
+  "Recommend Video 1": "HTECH_162",
+  "Recommend Video 2": "HTECH_159",
+  "Recommend Video 3": "HTECH_141",
+  "Recommend Video 4": "HTECH_132",
+  "Recommend Video 5": "HTECH_127"
+ },
+ {
+  "Video ": "Sleep Disorder Classification: A Transformer-Based AI Approach",
+  "Course id": "HTECH_167",
+  "Recommend Video 1": "HTECH_143",
+  "Recommend Video 2": "HTECH_159",
+  "Recommend Video 3": "HTECH_141",
+  "Recommend Video 4": "HTECH_155",
+  "Recommend Video 5": "HTECH_128"
+ },
+ {
+  "Video ": "Healthcare AI Model Selection: Insights and Guidance for Practitioners",
+  "Course id": "HTECH_168",
+  "Recommend Video 1": "HTECH_153",
+  "Recommend Video 2": "HTECH_158",
+  "Recommend Video 3": "HTECH_128",
+  "Recommend Video 4": "HTECH_127",
+  "Recommend Video 5": "HTECH_130"
+ },
+ {
+  "Video ": "From Genetics to Prediction: Custom Algorithms for Familial Hypercholesterolemia",
+  "Course id": "HTECH_169",
+  "Recommend Video 1": "HTECH_161",
+  "Recommend Video 2": "HTECH_167",
+  "Recommend Video 3": "HTECH_130",
+  "Recommend Video 4": "HTECH_128",
+  "Recommend Video 5": "HTECH_153"
+ },
+ {
+  "Video ": "Leveraging AI for Comprehensive Mood Assessment in Patient Care",
+  "Course id": "HTECH_170",
+  "Recommend Video 1": "HTECH_153",
+  "Recommend Video 2": "HTECH_130",
+  "Recommend Video 3": "HTECH_128",
+  "Recommend Video 4": "HTECH_158",
+  "Recommend Video 5": "HTECH_149"
+ },
+ {
+  "Video ": "Evaluating Sepsis Risk via Machine Learning",
+  "Course id": "HTECH_171",
+  "Recommend Video 1": "HTECH_153",
+  "Recommend Video 2": "HTECH_158",
+  "Recommend Video 3": "HTECH_130",
+  "Recommend Video 4": "HTECH_128",
+  "Recommend Video 5": "HTECH_132"
+ },
+ {
+  "Video ": "AI Models in Cardiac Tissue Engineering Applications",
+  "Course id": "HTECH_172",
+  "Recommend Video 1": "HTECH_162",
+  "Recommend Video 2": "HTECH_128",
+  "Recommend Video 3": "HTECH_167",
+  "Recommend Video 4": "HTECH_130",
+  "Recommend Video 5": "HTECH_135"
+ },
+ {
+  "Video ": "Multi-Modal AI: Elevating HNSCC Diagnostic Accuracy",
+  "Course id": "HTECH_173",
+  "Recommend Video 1": "HTECH_130",
+  "Recommend Video 2": "HTECH_128",
+  "Recommend Video 3": "HTECH_159",
+  "Recommend Video 4": "HTECH_158",
+  "Recommend Video 5": "HTECH_136"
+ }
+]

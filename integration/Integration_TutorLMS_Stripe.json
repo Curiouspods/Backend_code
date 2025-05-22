@@ -1,0 +1,646 @@
+{
+"Mapping":[
+ {
+  "Product ID": "prod_SDxnEfkt0VWmrW",
+  "Course ID": 84,
+  "Course Title": "Generative AI in Digital Architectures",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SDxpN5jEADMtQp",
+  "Course ID": 85,
+  "Course Title": "Ethics and Regulations: A Blockchain Approach to Medical Article Compliance",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SDxqRqDBMhlNAb",
+  "Course ID": 86,
+  "Course Title": "Assessing Impact: Causal Inference Techniques",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqpV5y0MrDkSV",
+  "Course ID": 87,
+  "Course Title": "Transforming Change Management with BERT and NLP",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SDxuuD84vfTzid",
+  "Course ID": 88,
+  "Course Title": "Revolutionizing DevSecOps: AI and Generative AI in Actiona",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqpPm0L52OiMC",
+  "Course ID": 90,
+  "Course Title": "Blockchain and AI: Transforming Pharmacy Payments with Smart Contracts",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqq390HYNf36P",
+  "Course ID": 92,
+  "Course Title": "Cloud Computing Essentials: Enhancing Predictive Analytics with SHAP",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqraumd4mTEWQ",
+  "Course ID": 94,
+  "Course Title": "Navigating Risks: How K-Nearest Neighbors Enhance Predictive Analytics",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqsMKWpAiz7Um",
+  "Course ID": 96,
+  "Course Title": "Real-Time Churn Prediction with Machine Learning",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqskX18U7PGra",
+  "Course ID": 98,
+  "Course Title": "Zero Trust in Action: Securing Data with Robust Access Control",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqtQaaicJ0YB9",
+  "Course ID": 99,
+  "Course Title": "Proactive Defect Management Using Generative AI",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIquJpLPA1SnHP",
+  "Course ID": 100,
+  "Course Title": "Performance Insights: Access Time Analysis of SRAM and DRAM",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqGid65Pag92I",
+  "Course ID": 101,
+  "Course Title": "Strategic SharePoint Governance: Optimizing Content Management and Collaboration",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqvP2kTQfZbl9",
+  "Course ID": 102,
+  "Course Title": "Predictive Modeling and Anomaly Detection with SRE and AIOps",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqwAhNW1Fcx3l",
+  "Course ID": 103,
+  "Course Title": "Generative AI for Tamper-Resistant Watermarks in Digital Rights Management",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqylwFWSokKBa",
+  "Course ID": 105,
+  "Course Title": "Streamlining Customer Choices: A Subscription Box Recommendation System",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqzeQhIWPM6gg",
+  "Course ID": 107,
+  "Course Title": "Targeted Interventions: Harnessing AI for Personalized Customer Motivation",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIqzbIID9VXoJt",
+  "Course ID": 108,
+  "Course Title": "Predicting User Drop-Offs: Insights from Journey Data Analysis",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr036xw0cpoD3",
+  "Course ID": 109,
+  "Course Title": "Risk Management in Digital Transformation: Strategies for Resource Optimization",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr1G6sMniUvHs",
+  "Course ID": 110,
+  "Course Title": "Harnessing BERT for Accurate Dosage Guidance in Customer Support",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr1dkSvakpEVg",
+  "Course ID": 111,
+  "Course Title": "Navigating Emotions: Advanced Techniques in Sentiment Categorization",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr25bZts2evn6",
+  "Course ID": 113,
+  "Course Title": "Automating Documentation: AI for Agile Project Delivery",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr28LUIAzmQaa",
+  "Course ID": 114,
+  "Course Title": "Exploring Generative AI: Models and Use Cases",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr4DP6Lk2ycsw",
+  "Course ID": 115,
+  "Course Title": "Generative AI Models: From Theory to Application",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr46D64PL5U6M",
+  "Course ID": 116,
+  "Course Title": "Multi-Dimensional Cybersecurity: XSS Safeguards, Traffic Analysis, and Robust IAM Practices",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr5M9dymxJq4M",
+  "Course ID": 117,
+  "Course Title": "Comprehensive Threat Mitigation: NMAP Scans, DDoS Defense, and SQL Injection Safeguards",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr5dnHxQ0xKpe",
+  "Course ID": 118,
+  "Course Title": "Building Scalable Microservices for Enhanced Efficiency",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr6FwTZegmDdH",
+  "Course ID": 119,
+  "Course Title": "Advanced Trust and Anomaly Detection for IoT Devices",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr7JLPc5pSEK7",
+  "Course ID": 120,
+  "Course Title": "Transformative Power of Generative AI: Principles and Applications",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr8fojp99FPps",
+  "Course ID": 122,
+  "Course Title": "AI Infrastructure Design: Ensuring Performance and Compliance",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr8yWPcYSViIJ",
+  "Course ID": 123,
+  "Course Title": "Composable Environments: Transforming FHIR Validation with AI",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIr9SXGiHhYApO",
+  "Course ID": 124,
+  "Course Title": "Energy Forecasting Using Advanced AI Models",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrB1UB7iH2sjh",
+  "Course ID": 125,
+  "Course Title": "Assessing Accuracy and Sensitivity of AI Models",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrBhNfKzqmdW5",
+  "Course ID": 126,
+  "Course Title": "Scaling Personalization: Enhancing Clinical Trials with Generative AI",
+  "Plan id": "ETECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SDxu3kwSX0A37s",
+  "Course ID": 127,
+  "Course Title": "Predicting Fibrosis Stages in NAFLD Using Advanced AI Models",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrCLEEuPibr8N",
+  "Course ID": 128,
+  "Course Title": "AI-Powered Fraud Detection: Improving Insurance Claim Accuracy",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrCqOu7xd1KUY",
+  "Course ID": 129,
+  "Course Title": "Transforming Care: Predictive Modeling for Arrhythmogenic Right Ventricular Cardiomyopathy",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrDiNUD256MOI",
+  "Course ID": 130,
+  "Course Title": "Streamlining Healthcare Data Interoperability",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrDahZOcRr3XA",
+  "Course ID": 131,
+  "Course Title": "Decoding Tumor Heterogeneity: Advanced Profiling and Biomarker Discovery",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrFwJIjafdEfs",
+  "Course ID": 132,
+  "Course Title": "Enhancing Patient Monitoring with BERT: A Biofeedback Approach",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrGt2K58pZ47p",
+  "Course ID": 133,
+  "Course Title": "Harnessing BERT and LDA for Enhanced Mental Health Topic Modeling",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrGzlNGSbIxNt",
+  "Course ID": 135,
+  "Course Title": "Enhancing Revenue Cycle with AI-Powered Verification",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrHVyxDBUkN9z",
+  "Course ID": 136,
+  "Course Title": "AI-Based Triage and Diagnostic Solutions for Improved Healthcare",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrI6C4jzSTVRL",
+  "Course ID": 137,
+  "Course Title": "AI for Pharmacy Inventory Optimization",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrIjYAYjO757D",
+  "Course ID": 138,
+  "Course Title": "Deep Learning for Retinal Condition Classification",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrJK6fFwjEV4x",
+  "Course ID": 139,
+  "Course Title": "Next-Gen Pharmacovigilance: Predicting ADRs with NLP and BERT",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrLNHzaiJQd3L",
+  "Course ID": 140,
+  "Course Title": "Transforming Care: The Applications of Emotional Intelligence and AI",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrLBZW7o7uvcl",
+  "Course ID": 141,
+  "Course Title": "Real-Time Object Detection for Enhanced Surgical Efficiency",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIrMAdUAexDZfw",
+  "Course ID": 142,
+  "Course Title": "Advancing Cell Analysis: A 3D CNN Approach to Time-Series Imaging",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIs9Ii7o4E4EJs",
+  "Course ID": 143,
+  "Course Title": "Empowering Analytics: The Role of NER and BERT in Data Management",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsD6eV3rCmHuy",
+  "Course ID": 144,
+  "Course Title": "Dynamic Health Monitoring: AI Solutions for Decentralized Trials",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsDeVDIGdeus2",
+  "Course ID": 145,
+  "Course Title": "Next-Generation Sequencing Meets AI: Revolutionizing Drug Response Predictions",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsE2f72kZsp5W",
+  "Course ID": 146,
+  "Course Title": "Advancing Diabetes Therapy with AI-Optimized Insulin Dosing",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsFVdiKtDRkqd",
+  "Course ID": 147,
+  "Course Title": "Clinical AI for Advanced Patient Risk Assessment",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsF01z1lDT9KV",
+  "Course ID": 148,
+  "Course Title": "Enhancing Prostate Cancer Diagnosis with AI and MRI",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsFZ4rld7b2Pn",
+  "Course ID": 149,
+  "Course Title": "Advanced Binding Affinity Prediction in Drug Discovery",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsILEPf8dC6ty",
+  "Course ID": 150,
+  "Course Title": "Proactive Disease Management: AI for Diabetes and Hypertension Prediction",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsIaKJmIZjhSu",
+  "Course ID": 151,
+  "Course Title": "Advanced AI Techniques for Depression Detection and Management",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsJKjqyeru220",
+  "Course ID": 152,
+  "Course Title": "Predicting Asthma Attacks: A Hybrid AI Approach",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsJzBvwY5YKcS",
+  "Course ID": 153,
+  "Course Title": "AI Insights for Value-Based Care: Evaluating Treatment Outcomes with BERT",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsKPH4PE4MQ8K",
+  "Course ID": 154,
+  "Course Title": "Transforming Equipment Reliability in Clinics with Predictive AI",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsLivfmanDNc6",
+  "Course ID": 155,
+  "Course Title": "Advancing Alzheimer's Diagnostics with Generative AI",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsLw49OyQa0zC",
+  "Course ID": 156,
+  "Course Title": "Transforming Surgical Scheduling with Generative AI and Predictive Insights",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsLlKget9CV4X",
+  "Course ID": 157,
+  "Course Title": "Multimodal Machine Learning for Effective ECG Arrhythmia Diagnosis",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsLZbjzJAIPsm",
+  "Course ID": 158,
+  "Course Title": "Dynamic Monitoring and Fluid Management for ICU Sepsis Patients",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsMPxEVdeERw9",
+  "Course ID": 159,
+  "Course Title": "Revolutionizing Severe Trauma Management with AI Insights",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsMg0dtfFsJ2y",
+  "Course ID": 160,
+  "Course Title": "Predicting Treatment Efficacy in Regenerative Medicine with AI",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsMzIkrgVPLok",
+  "Course ID": 161,
+  "Course Title": "Multi-Factor Predictive Modeling in Genetics and Genomics",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsNhmA1CtD2wz",
+  "Course ID": 162,
+  "Course Title": "Deep Learning for Cardiovascular Risk and Continuous Outcome Analysis",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsN3xX6HCg75L",
+  "Course ID": 163,
+  "Course Title": "Deep Learning for EEG Time-Series Prediction",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsOfh39efQz6n",
+  "Course ID": 164,
+  "Course Title": "Optimizing Apoptotic Cell Classification through Advanced Image Segmentation",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsONw0IriTgA4",
+  "Course ID": 165,
+  "Course Title": "Enhanced Surgical Training with AI Segmentation",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsPmKEosdCnqH",
+  "Course ID": 166,
+  "Course Title": "AI-Driven Insights into Alcohol-Induced Kidney Complications",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsQVnoSF8n45A",
+  "Course ID": 167,
+  "Course Title": "Sleep Disorder Classification: A Transformer-Based AI Approach",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SDxtFETxy5D1p7",
+  "Course ID": 168,
+  "Course Title": "Healthcare AI Model Selection: Insights and Guidance for Practitioners",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1",
+  "Column7": " "
+ },
+ {
+  "Product ID": "prod_SIsRhgRqx81q4j",
+  "Course ID": 169,
+  "Course Title": "From Genetics to Prediction: Custom Algorithms for Familial Hypercholesterolemia",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsSYjyRLeftW6",
+  "Course ID": 170,
+  "Course Title": "Leveraging AI for Comprehensive Mood Assessment in Patient Care",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SIsSA7Nu7ycGSS",
+  "Course ID": 171,
+  "Course Title": "Evaluating Sepsis Risk via Machine Learning",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SDxtBXuMP7HKeY",
+  "Course ID": 172,
+  "Course Title": "AI Models in Cardiac Tissue Engineering Applications",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ },
+ {
+  "Product ID": "prod_SDxsyEiNlSUufj",
+  "Course ID": 173,
+  "Course Title": "Multi-Modal AI: Elevating HNSCC Diagnostic Accuracy",
+  "Plan id": "HTECH",
+  "Course Status": "A",
+  "Course Version": "V1"
+ }
+ 
+]
+}
