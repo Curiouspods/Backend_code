@@ -77,7 +77,7 @@ exports.submitForm = async (req, res) => {
             return res.status(400).json({ message: "Invalid form type or subType in URL." });
         }
 
-        let { email, phone_number, userId, ...formData } = req.body;
+        let { email, phone_number, userId, message, ...formData } = req.body;
         let userDetails = null;
 
         // Check if user exists in Registration DB
@@ -100,10 +100,25 @@ exports.submitForm = async (req, res) => {
             if (phone_number) formData.phone_number = encryptData(phone_number);
         }
 
+        // Get the support email based on the form type
+        const supportEmail = formTypeToEmail[mappedFormType];
+        if (!supportEmail) {
+            return res.status(400).json({ message: "No support email found for the given form type." });
+        }
+
         const newForm = new UserForm({ formType: mappedFormType, ...formData });
         const savedForm = await newForm.save();
+
+        // Remove the captcha token from the client data before sending the email
+        const { 'g-recaptcha-response': _, ...filteredClientData } = req.body;
+
+        // Format filtered client-sent form data as key-value pairs for the email body
+        const formattedClientData = Object.entries(filteredClientData)
+            .map(([key, value]) => `${key}: ${value}`)
+            .join('\n');
+
         await sendEmail(email, supportEmail, `New Form Submission: ${mappedFormType}`,
-            `Hello Support Team,\n\nA new form has been submitted.\n\nForm Type: ${mappedFormType}\nUser Email: ${decryptData(formData.email)}\nUser Message: ${message}\n\nBest Regards,\nYour System`
+            `Hello Support Team,\n\nA new form has been submitted.\n\nForm Type: ${mappedFormType}\nUser Email: ${email}\nForm Data:\n${formattedClientData}\n\nBest Regards,\nYour System`
         );
         res.status(201).json({
             message: `${mappedFormType} form submitted successfully`,

@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const rateLimit = require('express-rate-limit');
+const cors = require('cors');
 
 dotenv.config();
 
@@ -9,6 +10,13 @@ const formRoutes = require('./routes/formRoutes');
 
 const app = express();
 app.use(express.json());
+
+// Enable CORS for all routes
+app.use(cors({
+    origin: 'http://localhost:3000', // Replace with your frontend's URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 // Global rate limiter to protect your entire API
 // This is optional and complementary to the specific rate limiter in formRoutes.js
