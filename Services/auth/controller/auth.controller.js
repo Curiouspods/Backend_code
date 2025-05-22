@@ -4,13 +4,6 @@ const logger = require('../config/logger');
 const { ApiError } = require('../middleware/error.middleware');
 const passport = require('passport');
 const axios = require('axios');
-
-<<<<<<< HEAD
-=======
-/**
- * Login user with email, password, and reCAPTCHA
- */
->>>>>>> a4d93229a3373ea1406c52c7dd1c9b082756b235
 const loginUser = async (req, res, next) => {
     try {
         const { email, password, captchaToken } = req.body;
@@ -71,13 +64,6 @@ const loginUser = async (req, res, next) => {
         next(new ApiError(500, 'Authentication failed'));
     }
 };
-
-<<<<<<< HEAD
-=======
-/**
- * Logout user
- */
->>>>>>> a4d93229a3373ea1406c52c7dd1c9b082756b235
 const logoutUser = async (req, res, next) => {
     try {
         const userId = req.user.id;
@@ -263,11 +249,8 @@ module.exports = {
     handleGoogleAuth,
     handleGoogleCallback,
     handleLinkedInAuth,
-<<<<<<< HEAD
-    handleLinkedInCallback
-=======
+    handleLinkedInCallback,
     handleLinkedInCallback,
     twitterCallback,
     linkedinCallback
->>>>>>> a4d93229a3373ea1406c52c7dd1c9b082756b235
 };

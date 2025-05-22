@@ -5,8 +5,8 @@ const { validateUserRegistration, validateUserUpdate, validatePasswordChange } =
 const logger = require('../config/logger');
 const { ApiError } = require('../middleware/error.middleware');
 const axios = require('axios');
-const RECAPTCHA_SECRET_KEY = process.env.SECRET_KEY;
-
+const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
+console.log("Secret key:",RECAPTCHA_SECRET_KEY)
 const registerUser = async (req, res, next) => {
     try {
         const { error } = validateUserRegistration(req.body);
